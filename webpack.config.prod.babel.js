@@ -13,7 +13,7 @@ module.exports = {
   mode: "production",
   entry: {
     main: [
-      path.join(__dirname, "./src/app.js"),
+      path.join(__dirname, "./src/app.ts"),
     ],
   },
   output: {

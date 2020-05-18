@@ -8,7 +8,7 @@ const autoprefixer = require("autoprefixer");
 module.exports = {
   entry: {
     main: [
-      "./src/app.js",
+      "./src/app.ts",
     ],
   },
   output: {
