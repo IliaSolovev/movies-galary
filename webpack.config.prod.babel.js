@@ -107,7 +107,18 @@ module.exports = {
   ],
   optimization: {
     minimizer: [
-      new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
+      new ImageminPlugin({
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        cache: true,
+        imageminOptions: {
+          plugins: [
+            ["gifsicle", { interlaced: true }],
+            ["jpegtran", { progressive: true }],
+            ["optipng", { optimizationLevel: 5 }],
+            [
+              "svgo", {
+                plugins: [{ removeViewBox: false }] }]] }
+      }),
       new OptimizeCssAssetsPlugin({
         cssProcessorOptions: { sourceMap: true },
       }),
