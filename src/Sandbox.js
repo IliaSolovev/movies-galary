@@ -1,4 +1,5 @@
 import React from "react";
+import SvgImage from "./images/music-and-multimedia.svg";
 
 const FComponent = () => {
   return <div>FComponent</div>;
@@ -16,8 +17,14 @@ class RPureComponent extends React.PureComponent {
 }
 
 class RComponentWithState extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "Ilya"
+    };
+  }
   render() {
-    return <div>State.name: ASd</div>;
+    return <div>State.name: {this.state.name}</div>;
   }
 }
 
@@ -28,6 +35,7 @@ const Sandbox = () => {
       <RComponent />
       <RPureComponent />
       <RComponentWithState />
+      <SvgImage width={50} height={50}/>
     </div>
   );
 };

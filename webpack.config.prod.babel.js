@@ -58,6 +58,23 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.svg$/,
+        use: [
+          "babel-loader",
+          {
+            loader: "react-svg-loader",
+            options: {
+              svgo: {
+                plugins: [
+                  { removeTitle: false }
+                ],
+                floatPrecision: 2
+              }
+            }
+          }
+        ]
+      }
     ],
   },
   plugins: [
@@ -79,7 +96,6 @@ module.exports = {
   ],
   optimization: {
     minimizer: [
-      new UglifyJSPlugin({ sourceMap: true }),
       new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
       new OptimizeCssAssetsPlugin({
         cssProcessorOptions: { sourceMap: true },
