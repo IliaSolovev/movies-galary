@@ -1,12 +1,11 @@
 import React  from "react";
-import ReactDOM from "react-dom";
-import Sandbox from "./Sandbox";
 import "./styles/main.scss";
+import Header from "./components/Header/Header";
 
 const App = () => {
   return (
       <div className="App">
-        <Sandbox/>
+          <Header/>
       </div>
   )
 };

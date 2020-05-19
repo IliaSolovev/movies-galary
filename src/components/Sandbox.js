@@ -1,6 +1,5 @@
 import React from "react";
-import SvgImage from "./images/music-and-multimedia.svg";
-import "./styles/main.scss";
+import "../styles/main.scss";
 const FComponent = () => {
   return <div>FComponent</div>;
 };

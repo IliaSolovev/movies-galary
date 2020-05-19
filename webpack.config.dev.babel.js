@@ -5,14 +5,22 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ErrorOverlayPlugin = require("error-overlay-webpack-plugin");
 const autoprefixer = require("autoprefixer");
 
+const paths = {
+  src: path.resolve(__dirname, 'src'),
+  dist: path.resolve(__dirname, 'dist')
+};
+
 module.exports = {
+  context: paths.src,
   entry: {
-    main: [
-      "./src/app.ts",
-    ],
+    app: './index'
   },
   output: {
-    filename: "[name].js",
+    path: paths.dist,
+    filename: '[name].bundle.js'
+  },
+  resolve:{
+    extensions:['.ts', '.tsx', '.js', '.jsx']
   },
   devServer: {
     historyApiFallback: true,
@@ -22,6 +30,10 @@ module.exports = {
   devtool: "cheap-module-source-map",
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader'
+      },
       {
         test: /\.(jsx?)$/,
         exclude: /node_modules/,
