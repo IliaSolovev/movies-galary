@@ -6,21 +6,21 @@ const ErrorOverlayPlugin = require("error-overlay-webpack-plugin");
 const autoprefixer = require("autoprefixer");
 
 const paths = {
-  src: path.resolve(__dirname, 'src'),
-  dist: path.resolve(__dirname, 'dist')
+  src: path.resolve(__dirname, "src"),
+  dist: path.resolve(__dirname, "dist")
 };
 
 module.exports = {
   context: paths.src,
   entry: {
-    app: './index'
+    app: "./index"
   },
   output: {
     path: paths.dist,
-    filename: '[name].bundle.js'
+    filename: "[name].bundle.js"
   },
   resolve:{
-    extensions:['.ts', '.tsx', '.js', '.jsx']
+    extensions:[".ts", ".tsx", ".js", ".jsx"]
   },
   devServer: {
     historyApiFallback: true,
@@ -32,7 +32,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader'
+        loader: "awesome-typescript-loader"
       },
       {
         test: /\.(jsx?)$/,
@@ -55,7 +55,10 @@ module.exports = {
           },
           {
             loader: "css-loader",
-            options: { sourceMap: true },
+            options: {
+              sourceMap: true,
+              modules: true
+            }
           },
           {
             loader: "postcss-loader",

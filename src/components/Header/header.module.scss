@@ -1,0 +1,33 @@
+@import '../../styles/variables';
+@import '../../styles/main';
+.header{
+  position: relative;
+  width: 100vw;
+  height: 20vh;
+  background: url("./images/headerBg.jpg") 50% 50% no-repeat;
+  padding: 15px 0 30px 0;
+  z-index: 1;
+  &:before{
+    content: "";
+    position: absolute;
+    opacity: .3;
+    background: #000000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+  }
+  & > * {
+    @extend .headerContainer;
+    position: relative;
+    z-index: 3;
+  }
+}
+.header__title{
+  margin-bottom: 2vw;
+  font-family: "Roboto",sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: $redColor;
+}

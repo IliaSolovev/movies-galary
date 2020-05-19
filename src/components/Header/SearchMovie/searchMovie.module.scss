@@ -1,0 +1,21 @@
+.searchMovie{
+  position: relative;
+}
+.searchMovie__title{
+  margin-bottom: 1.4vw;
+  font-family: Roboto,sans-serif;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.searchMovie__buttons{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  @media screen and (max-width: 500px) {
+    justify-content: space-around;
+
+  }
+}

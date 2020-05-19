@@ -7,10 +7,6 @@
     "target": "es5",
     "jsx": "react",
     "esModuleInterop": true
-  },
-  "files": [
-    "./typings/index.d.ts",
-    "./src/index.tsx"
-  ],
+  }
   "plugins": [{ "name": "typescript-plugin-css-modules" }]
 }
