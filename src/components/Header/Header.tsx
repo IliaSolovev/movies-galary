@@ -1,11 +1,10 @@
 import React from "react";
-import SearchMovie from "./SearchMovie/SearchMovie";
 import s from "./header.module.scss";
-const Header = ( ) => {
+
+const Header:React.FC = (props ) => {
     return(
         <header className={s.header}>
-            <div className={s.header__title}>netflixroulette</div>
-            <SearchMovie/>
+            {props.children}
         </header>
     )
 };

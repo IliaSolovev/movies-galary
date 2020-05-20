@@ -1,4 +1,4 @@
-@import "../../../../styles/variables";
+@import "../../../styles/variables";
 
 .input {
   position: relative;
@@ -11,7 +11,7 @@
   border: none;
   border-bottom: 2px solid $redColor;
   outline:none;
-  font-family: Roboto,sans-serif;
+  font-family: $mainFont;
   font-weight: lighter;
   font-size: 1em;
   color: #fff;

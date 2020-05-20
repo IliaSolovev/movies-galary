@@ -1,5 +1,5 @@
 import React from "react";
-import s from './SearchButton.module.scss';
+import s from './searchButton.module.scss';
 interface Props {
 
 }

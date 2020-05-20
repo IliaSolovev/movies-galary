@@ -1,21 +1,21 @@
 import React from "react";
-import SearchMovieField from "./SearchMovieField/SearchMovieField";
+import Field from "./Field/Field";
 import SearchMovieFilters from "./SearchMovieFilters/SearchMovieFilters";
 import SearchButton from "./SearchButton/SearchButton";
-import s from './searchMovie.module.scss';
+import s from './searchMovieForm.module.scss';
 
 interface Props {
 
 }
 
-const SearchMovie = (props: Props) => {
+const SearchMovieForm = (props: Props) => {
     return (
         <div className={s.searchMovie}>
 
             <div className={s.searchMovie__title}>find your movie</div>
 
             <div>
-                <SearchMovieField value={'asd'} onChange={() => {
+                <Field value={'asd'} onChange={() => {
                 }}/>
             </div>
             <div className={s.searchMovie__buttons}>
@@ -26,4 +26,4 @@ const SearchMovie = (props: Props) => {
     )
 };
 
-export default SearchMovie;
+export default SearchMovieForm;

@@ -1,4 +1,4 @@
-@import "../../../../../styles/variables";
+@import "../../../../styles/variables";
 .button{
   padding: 2px 15px;
   border-radius: 2px;
@@ -6,7 +6,7 @@
   outline: none;
   background: #676767;
   cursor: pointer;
-  font-family: Roboto,sans-serif;
+  font-family: $mainFont;
   color: #fff;
   font-weight: normal;
   font-size: .8em;

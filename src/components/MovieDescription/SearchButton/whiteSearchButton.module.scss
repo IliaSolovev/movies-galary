@@ -1,19 +1,23 @@
-@import "../../../../styles/variables";
-.button{
-  width: 170px;
+@import "../../../styles/variables";
+
+.button {
+  width: 100px;
   height: 30px;
+  margin-left: 10px;
   border-radius: 2px;
   border: none;
   outline: none;
-  background: $redColor;
+  background: #fff;
   cursor: pointer;
-  font-family: Roboto,sans-serif;
-  color: #fff;
+  font-family: $mainFont;
+  color: $redColor;
   font-weight: normal;
   font-size: .8em;
   text-transform: uppercase;
   transition: opacity .2s ease;
-  &:active{
+
+  &:active {
     opacity: .8;
   }
 }
+

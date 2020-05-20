@@ -1,0 +1,46 @@
+@import "../../styles/variables";
+@import "../../styles/main";
+.container{
+  width: 100vw;
+  height: 50px;
+  background: #e6e6e6;
+  & > div{
+    @extend .headerContainer;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    @media screen and (max-width: 450px){
+      justify-content: space-around;
+
+    }
+  }
+}
+
+.movieCounter{
+  font-family: $mainFont;
+  font-size: .9em;
+  font-weight: bold;
+  color: #676767;
+  @media screen and (max-width: 450px){
+    margin-bottom: 5px;
+  }
+}
+.filters{
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family:$mainFont;
+  font-size: 1em;
+  font-weight: bold;
+  color: #2a2a2a;
+}
+.filter__buttons{
+  width: 180px;
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+  font-size: .9em;
+}

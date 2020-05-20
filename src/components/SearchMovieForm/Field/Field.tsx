@@ -1,11 +1,11 @@
 import React from "react";
-import s from './searchMovieField.module.scss'
+import s from './field.module.scss'
 interface Props {
     value: string,
     onChange: (e: React.FormEvent ) => void
 }
 
-const SearchMovieField = (props: Props) => {
+const Field = (props: Props) => {
     // const {value,onChange} = props;
     return (
         <>
@@ -15,4 +15,4 @@ const SearchMovieField = (props: Props) => {
 
 };
 
-export default SearchMovieField;
+export default Field;

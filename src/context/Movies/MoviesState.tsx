@@ -6,7 +6,7 @@ interface Props {
 
 }
 
-export const MoviesState: React.FC<Props> = (props) => {
+const MoviesState: React.FC<Props> = (props) => {
     const [moviesState, dispatch] = useReducer(moviesReducer,{movies: []});
 
     return (
@@ -19,3 +19,4 @@ export const MoviesState: React.FC<Props> = (props) => {
         </MoviesContext.Provider>
     );
 };
+export default MoviesState

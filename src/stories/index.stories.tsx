@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "@storybook/react/demo";
+import WhiteSearchButton from "../components/MovieDescription/SearchButton/WhiteSearchButton";
 
 export default { title: "Button" };
 
@@ -12,3 +13,5 @@ export const withEmoji = () => (
     </span>
   </Button>
 );
+
+export const smallSearchButton = () => <WhiteSearchButton/>;
