@@ -1,5 +1,5 @@
 import React from "react";
-import Field from "./Field/Field";
+import SearchField from "./Field/SearchField";
 import SearchMovieFilters from "./SearchMovieFilters/SearchMovieFilters";
 import SearchButton from "./SearchButton/SearchButton";
 import s from './searchMovieForm.module.scss';
@@ -15,7 +15,7 @@ const SearchMovieForm = (props: Props) => {
             <div className={s.searchMovie__title}>find your movie</div>
 
             <div>
-                <Field value={'asd'} onChange={() => {
+                <SearchField value={'asd'} onChange={() => {
                 }}/>
             </div>
             <div className={s.searchMovie__buttons}>

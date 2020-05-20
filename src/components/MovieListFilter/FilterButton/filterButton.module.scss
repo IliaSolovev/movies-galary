@@ -1,10 +1,16 @@
 @import "../../../styles/variables";
-.button{
-  border: none; outline: none;
+
+.button {
+  border: none;
   background: none;
   color: #2a2a2a;
   cursor: pointer;
+  transition: opacity .2s ease;
+  &:hover {
+    opacity: .8;
+  }
 }
-.button_active{
+
+.button_active {
   color: $redColor
 }

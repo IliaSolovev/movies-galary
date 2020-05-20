@@ -8,9 +8,7 @@ import MoviesList from "./components/MoviesList/MoviesList";
 import MovieDescription from "./components/MovieDescription/MovieDescription";
 import MainTitle from "./components/MainTitle/MainTitle";
 import MovieListFilter from "./components/MovieListFilter/MovieListFilter";
-import SearchMovieForm from "./components/SearchMovieForm/SearchMovieForm";
 import s from "./app.module.scss";
-import MovieListGenre from "./components/MovieListGenre/MovieListGenre";
 import WhiteSearchButtonModule from "./components/MovieDescription/SearchButton/WhiteSearchButton";
 
 const App: React.FC = (props) => {

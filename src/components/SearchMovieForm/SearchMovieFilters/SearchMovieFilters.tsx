@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./Button/Button";
+import SearchMovieFiltersButton from "./SearchMovieFiltersButton/SearchMovieFiltersButton";
 import s from "./searchMovieFilters.module.scss"
 interface Props {
 
@@ -10,8 +10,8 @@ const SearchMovieFilters = (props: Props) => {
         <div className={s.searchMovieFilters}>
             <div className={s.searchBy}>search by</div>
             <div className={s.buttons}>
-                <Button text="title" isActive={true}/>
-                <Button text="genre" isActive={false}/>
+                <SearchMovieFiltersButton text="title" isActive={true}/>
+                <SearchMovieFiltersButton text="genre" isActive={false}/>
             </div>
         </div>
     )

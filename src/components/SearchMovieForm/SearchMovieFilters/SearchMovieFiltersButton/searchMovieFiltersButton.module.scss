@@ -3,7 +3,6 @@
   padding: 2px 15px;
   border-radius: 2px;
   border: none;
-  outline: none;
   background: #676767;
   cursor: pointer;
   font-family: $mainFont;
@@ -12,7 +11,7 @@
   font-size: .8em;
   text-transform: uppercase;
   transition: opacity .2s ease;
-  &:active{
+  &:hover{
     opacity: .8;
   }
 }
