@@ -19,7 +19,7 @@ module.exports = {
     "SharedArrayBuffer": "readonly"
   },
   "rules": {
-    "indent": ["error", 2],
+    "indent": ["error", "tab"],
     "linebreak-style": ["warn", "windows"],
     "quotes": ["warn", "double"],
     "semi": ["error", "always"],

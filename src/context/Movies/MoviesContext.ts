@@ -15,6 +15,4 @@ export interface Movie {
     "genres": string[]
 }
 
-export const MoviesContext = React.createContext({
-    movies:[]
-});
+export const MoviesContext = React.createContext({});

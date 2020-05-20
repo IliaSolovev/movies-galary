@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "@storybook/preset-typescript": "^3.0.0",
+    "@types/react-router-dom": "^5.1.5",
     "babel-preset-react-app": "^9.1.2",
     "font-awesome": "^4.7.0",
     "normalize.css": "^8.0.1",
@@ -23,6 +24,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
     "redux": "^4.0.5"
   },
   "devDependencies": {
