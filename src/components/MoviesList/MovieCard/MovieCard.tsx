@@ -1,6 +1,6 @@
 import React from "react";
-import {Movie} from "../../../context/Movies/MoviesContext";
 import s from "./movieCard.module.scss";
+import {Movie} from "../../../context/Movies/moviesReducer";
 interface Props {
     data: Movie
 }
@@ -9,7 +9,7 @@ const MovieCard: React.FC<Props> = ({data,...rest}: Props) => {
     return (
         <div className={s.movieCard}>
             <div className={s.movieCard__poster}>
-                <img src={data.poster_path} alt=""/>
+                <img src={data.poster_path} alt={data.title}/>
             </div>
             <div className={s.movieCard__description}>
                 <div className={s.description__titleAndGenre}>

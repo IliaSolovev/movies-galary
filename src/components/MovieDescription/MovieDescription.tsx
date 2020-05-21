@@ -1,6 +1,6 @@
 import React from "react";
-import {Movie} from "../../context/Movies/MoviesContext";
 import s from "./movieDescription.module.scss"
+import {Movie} from "../../context/Movies/moviesReducer";
 interface Props {
     data: Movie
 }

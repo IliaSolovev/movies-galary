@@ -1,44 +1,33 @@
-import React from "react";
+import React, {useContext} from "react";
 import Header from "../../components/Header/Header";
 import MainTitle from "../../components/MainTitle/MainTitle";
-import MovieListFilter from "../../components/MovieListFilter/MovieListFilter";
+import MovieSortFilter from "../../components/MovieSortFilter/MovieSortFilter";
 import MoviesList from "../../components/MoviesList/MoviesList";
 import Footer from "../../components/Footer/Footer";
 import SearchMovieForm from "../../components/SearchMovieForm/SearchMovieForm";
 import bgS from "../bgStyles.module.scss";
+import {MoviesContext} from "../../context/Movies/MoviesContext";
 
 interface Props {
 
 }
 
 const FindMovie: React.FC<Props> = (props) => {
-    const data = {
-        id: 337167,
-        title: "Fifty Shades Freed",
-        tagline: "Don't miss the climax",
-        vote_average: 6.1,
-        vote_count: 1195,
-        release_date: "2018-02-07",
-        poster_path: "https://image.tmdb.org/t/p/w500/3kcEGnYBHDeqmdYf8ZRbKdfmlUy.jpg",
-        overview: "Believing they have left behind shadowy figures from their past, newlyweds Christian and Ana fully embrace an inextricable connection and shared life of luxury. But just as she steps into her role as Mrs. Grey and he relaxes into an unfamiliar stability, new threats could jeopardize their happy ending before it even begins.",
-        budget: 55000000,
-        revenue: 136906000,
-        genres: [
-            "Drama",
-            "Romance"
-        ],
-        runtime: 106
-    };
+    const context = useContext(MoviesContext);
     return (
         <div>
             <div className={bgS.bgContainer}>
                 <Header>
                     <MainTitle/>
                 </Header>
-                <SearchMovieForm/>
+                <SearchMovieForm fieldValue={context.searchData.fieldValue}
+                                 onFieldChange={context.setFieldValue}
+                                 searchType={context.searchData.searchType}
+                                 onSelectType={context.setSearchType}
+                                 fetchMovies={context.fetchMovies}/>
             </div>
-            <MovieListFilter movieCount={7}/>
-            <MoviesList data={data}/>
+            <MovieSortFilter movieCount={context.movies.data.length} onSetMoviesSortFilter={context.setMoviesSortFilter} currentFilter={context.moviesSortFilter}/>
+            <MoviesList movies={context.movies.data} sortFilter={context.moviesSortFilter}/>
             <Footer/>
         </div> 
     )

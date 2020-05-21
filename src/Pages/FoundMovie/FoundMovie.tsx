@@ -3,7 +3,7 @@ import bgS from "../bgStyles.module.scss";
 import Header from "../../components/Header/Header";
 import MainTitle from "../../components/MainTitle/MainTitle";
 import SearchMovieForm from "../../components/SearchMovieForm/SearchMovieForm";
-import MovieListFilter from "../../components/MovieListFilter/MovieListFilter";
+import MovieSortFilter from "../../components/MovieSortFilter/MovieSortFilter";
 import MoviesList from "../../components/MoviesList/MoviesList";
 import Footer from "../../components/Footer/Footer";
 import WhiteSearchButton from "../../components/MovieDescription/SearchButton/WhiteSearchButton";
@@ -42,7 +42,7 @@ const FoundMovie: React.FC<Props> = (props) => {
                 <MovieDescription data={data}/>
             </div>
             <MovieListGenre genre={"drama"}/>
-            <MoviesList data={data}/>
+            <MoviesList movies={[]} sortFilter={'rating'}/>
             <Footer/>
         </div>
     )
