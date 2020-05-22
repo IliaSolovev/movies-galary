@@ -9,10 +9,10 @@ interface Props {
     onFieldChange: (value: string) => void
     searchType: string,
     onSelectType: (value: string) => void
-    fetchMovies: () => void
+    search: () => void
 }
 
-const SearchMovieForm: React.FC<Props> = ({fieldValue,onFieldChange,searchType,onSelectType,fetchMovies}) => {
+const SearchMovieForm: React.FC<Props> = ({fieldValue,onFieldChange,searchType,onSelectType,search}) => {
     return (
         <div className={s.searchMovie}>
                 <div className={s.searchMovie__title}>find your movie</div>
@@ -22,7 +22,7 @@ const SearchMovieForm: React.FC<Props> = ({fieldValue,onFieldChange,searchType,o
                 </div>
                 <div className={s.searchMovie__buttons}>
                     <SearchMovieFilters searchType={searchType} onSelectType={onSelectType}/>
-                    <SearchButton onClick={fetchMovies}/>
+                    <SearchButton onClick={search}/>
                 </div>
         </div>
     )

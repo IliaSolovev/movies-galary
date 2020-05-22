@@ -24,7 +24,7 @@ const FindMovie: React.FC<Props> = (props) => {
                                  onFieldChange={context.setFieldValue}
                                  searchType={context.searchData.searchType}
                                  onSelectType={context.setSearchType}
-                                 fetchMovies={context.fetchMovies}/>
+                                 search={() => context.fetchMovies(context.searchData.fieldValue,context.searchData.searchType)}/>
             </div>
             <MovieSortFilter movieCount={context.movies.data.length} onSetMoviesSortFilter={context.setMoviesSortFilter} currentFilter={context.moviesSortFilter}/>
             <MoviesList movies={context.movies.data} sortFilter={context.moviesSortFilter}/>

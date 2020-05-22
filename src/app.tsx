@@ -3,24 +3,25 @@ import "./styles/main.scss";
 import 'normalize.css';
 import MoviesState from "./context/Movies/MoviesState";
 import {BrowserRouter as Router, Route} from "react-router-dom";
-import s from "./app.module.scss";
 import FindMovie from "./Pages/FindMovie/FindMovie";
 import FoundMovie from "./Pages/FoundMovie/FoundMovie";
+import CatchError from "./components/CatchError/CatchError";
 
 const App: React.FC = (props) => {
 
     return (
-        <MoviesState>
-            <Router>
-                <Route path='/movie'>
-                    <FoundMovie/>
-                </Route>
-                <Route path='/'>
-                    <FindMovie/>
-                </Route>
-            </Router>
-        </MoviesState>
-
+        // <CatchError>
+            <MoviesState>
+                <Router>
+                    <Route path='/movie/:movieId'>
+                        <FoundMovie/>
+                    </Route>
+                    <Route path='/' exact={true}>
+                        <FindMovie/>
+                    </Route>
+                </Router>
+            </MoviesState>
+        // </CatchError>
     )
 };
 
