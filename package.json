@@ -11,10 +11,22 @@
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/preset-typescript": "^7.9.0",
     "@storybook/preset-typescript": "^3.0.0",
     "@types/react-router-dom": "^5.1.5",
     "babel-preset-react-app": "^9.1.2",
@@ -44,6 +56,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@types/jest": "^25.2.3",
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
     "@types/source-map": "^0.5.7",
@@ -71,6 +84,7 @@
     "html-webpack-plugin": "^4.3.0",
     "imagemin-webpack-plugin": "^2.4.2",
     "img-loader": "^3.0.1",
+    "jest": "^25.0.1",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
@@ -81,9 +95,9 @@
     "sass-loader": "^8.0.2",
     "source-map-loader": "^0.2.4",
     "style-loader": "^1.2.1",
-    "ts-jest": "^25.5.0",
+    "ts-jest": "^25.5.1",
     "ts-loader": "^7.0.4",
-    "typescript": "^3.9.2",
+    "typescript": "^3.9.3",
     "typescript-plugin-css-modules": "^2.3.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.43.0",

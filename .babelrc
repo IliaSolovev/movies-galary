@@ -8,6 +8,7 @@
         "throwIfNamespace": false,
         "runtime": "classic"
       }
-    ]
+    ],
+    "@babel/preset-typescript"
   ]
 }
