@@ -10,11 +10,9 @@ interface Props {
 const MovieCard: React.FC<Props> = ({data, ...rest}: Props) => {
     return (
         <div className={s.movieCard}>
-            <Link to={`/movie/${data.id}`}>
                 <div className={s.movieCard__poster}>
                     <img src={data.poster_path} alt={data.title}/>
                 </div>
-            </Link>
 
             <div className={s.movieCard__description}>
                 <div className={s.description__titleAndGenre}>

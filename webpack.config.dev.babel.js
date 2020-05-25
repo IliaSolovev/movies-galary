@@ -1,4 +1,4 @@
-const path  =  require("path");
+const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
@@ -19,8 +19,8 @@ module.exports = {
 		path: paths.dist,
 		filename: "[name].bundle.js"
 	},
-	resolve:{
-		extensions:[".ts", ".tsx", ".js", ".jsx"]
+	resolve: {
+		extensions: [".ts", ".tsx", ".js", ".jsx", ".scss"]
 	},
 	devServer: {
 		historyApiFallback: true,
@@ -48,7 +48,27 @@ module.exports = {
 				],
 			},
 			{
+				test: /\.module\.s(a|c)ss$/,
+				loader: [
+					"style-loader",
+					{
+						loader: "css-loader",
+						options: {
+							modules: true,
+							sourceMap: true
+						}
+					},
+					{
+						loader: "sass-loader",
+						options: {
+							sourceMap: true
+						}
+					}
+				]
+			},
+			{
 				test: /\.(sa|sc|c)ss$/,
+				exclude: /\.module.(s(a|c)ss)$/,
 				use: [
 					{
 						loader: "style-loader",

@@ -5,5 +5,8 @@
   "bail": true,
   "verbose": true,
   "collectCoverageFrom" : ["./src/test/*.spec.ts", "!**/node_modules/**", "!**/vendor/**"],
-  "setupFilesAfterEnv": ["./setupJest.ts"]
+  "setupFilesAfterEnv": ["./setupJest.ts"],
+  "transform": {
+    ".+\\.(css|scss)$": "jest-css-modules-transform"
+  }
 }

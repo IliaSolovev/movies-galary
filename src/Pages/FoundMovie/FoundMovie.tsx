@@ -4,11 +4,11 @@ import Header from "../../components/Header/Header";
 import MainTitle from "../../components/MainTitle/MainTitle";
 import MoviesList from "../../components/MoviesList/MoviesList";
 import Footer from "../../components/Footer/Footer";
-import WhiteSearchButton from "../../components/MovieDescription/SearchButton/WhiteSearchButton";
+import WhiteSearchButton from "../../components/MovieDescription/WhiteSearchButton/WhiteSearchButton";
 import MovieDescription from "../../components/MovieDescription/MovieDescription";
 import MovieListGenre from "../../components/MovieListGenre/MovieListGenre";
 import {MoviesContext} from "../../context/Movies/MoviesContext";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {Movie} from "../../context/Movies/moviesReducer";
 import {movieApi} from "../../services/Api";
 import CatchError from "../../components/CatchError/CatchError";
@@ -36,7 +36,9 @@ const FoundMovie: React.FC<Props> = (props) => {
               <div className={bgS.bgContainer}>
                 <Header>
                   <MainTitle/>
+                  <Link to='/'>
                   <WhiteSearchButton/>
+                  </Link>
                 </Header>
                 <MovieDescription data={context.selectedMovie}/>
               </div>

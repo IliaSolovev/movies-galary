@@ -10,7 +10,7 @@ import CatchError from "./components/CatchError/CatchError";
 const App: React.FC = (props) => {
 
     return (
-        // <CatchError>
+        <CatchError>
             <MoviesState>
                 <Router>
                     <Route path='/movie/:movieId'>
@@ -21,7 +21,7 @@ const App: React.FC = (props) => {
                     </Route>
                 </Router>
             </MoviesState>
-        // </CatchError>
+         </CatchError>
     )
 };
 

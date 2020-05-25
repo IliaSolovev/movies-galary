@@ -10,6 +10,6 @@ const FilmsNotFound: React.FC<Props> = (props) => {
         Films Not Found
         </h2>
     )
-}
+};
 
 export default FilmsNotFound
