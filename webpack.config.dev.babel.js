@@ -27,7 +27,8 @@ module.exports = {
 		rules: [
 			{
 				test: /\.tsx?$/,
-				loader: "awesome-typescript-loader"
+				loader: "awesome-typescript-loader",
+				exclude: /node_modules/,
 			},
 			{
 				test: /\.module\.s(a|c)ss$/,
@@ -141,5 +142,5 @@ module.exports = {
 		port: 3000,
 		hot: true,
 	},
-	devtool: "cheap-module-source-map",
+	devtool: "source-map",
 };

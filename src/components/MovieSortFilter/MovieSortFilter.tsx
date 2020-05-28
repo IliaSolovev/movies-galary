@@ -1,7 +1,7 @@
 import React from "react";
 import s from './movieSortFilter.module.scss'
 import FilterButton from "./FilterButton/FilterButton";
-import {Filters} from "../../context/Movies/moviesReducer";
+import {Filters} from "../../redux/moviesSlice";
 
 interface Props {
     movieCount: number,

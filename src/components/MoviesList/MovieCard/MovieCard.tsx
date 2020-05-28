@@ -1,7 +1,6 @@
 import React from "react";
 import s from "./movieCard.module.scss";
-import {Movie} from "../../../context/Movies/moviesReducer";
-import {Link} from "react-router-dom";
+import {Movie} from "../../../redux/moviesSlice";
 
 interface Props {
     data: Movie

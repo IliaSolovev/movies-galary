@@ -1,17 +1,17 @@
 import React from "react";
 import "./styles/main.scss";
 import 'normalize.css';
-import MoviesState from "./context/Movies/MoviesState";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import FindMovie from "./Pages/FindMovie/FindMovie";
 import FoundMovie from "./Pages/FoundMovie/FoundMovie";
 import CatchError from "./components/CatchError/CatchError";
-
+import {Provider} from 'react-redux';
+import store from "./redux/store";
 const App: React.FC = (props) => {
 
     return (
-        <CatchError>
-            <MoviesState>
+        // <CatchError>
+           <Provider store={store}>
                 <Router>
                     <Route path='/movie/:movieId'>
                         <FoundMovie/>
@@ -20,8 +20,8 @@ const App: React.FC = (props) => {
                         <FindMovie/>
                     </Route>
                 </Router>
-            </MoviesState>
-         </CatchError>
+        </Provider>
+         // </CatchError>
     )
 };
 

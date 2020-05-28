@@ -3,12 +3,13 @@ import SearchField from "./Field/SearchField";
 import SearchMovieFilters from "./SearchMovieFilters/SearchMovieFilters";
 import SearchButton from "./SearchButton/SearchButton";
 import s from './searchMovieForm.module.scss';
+import {SearchType} from "../../redux/moviesSlice";
 
 interface Props {
     fieldValue: string,
     onFieldChange: (value: string) => void
     searchType: string,
-    onSelectType: (value: string) => void
+    onSelectType: (value: SearchType) => void
     search: () => void
 }
 
