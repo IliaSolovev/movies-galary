@@ -7,7 +7,7 @@ interface Props {
     data: Movie
 }
 
-const MovieDescription: React.FC<Props> = ({data, ...rest}) => {
+const MovieDescription: React.FC<Props> = ({data , ...rest}) => {
     return (
         <div className={s.content}>
             {data === null && <p>Loading...</p>}

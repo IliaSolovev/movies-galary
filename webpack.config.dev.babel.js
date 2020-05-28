@@ -22,30 +22,12 @@ module.exports = {
 	resolve: {
 		extensions: [".ts", ".tsx", ".js", ".jsx", ".scss"]
 	},
-	devServer: {
-		historyApiFallback: true,
-		port: 3000,
-		hot: true,
-	},
-	devtool: "cheap-module-source-map",
+
 	module: {
 		rules: [
 			{
 				test: /\.tsx?$/,
 				loader: "awesome-typescript-loader"
-			},
-			{
-				test: /\.(jsx?)$/,
-				exclude: /node_modules/,
-				use: [{
-					loader: "babel-loader",
-					options: {
-						presets: ["@babel/preset-env", "@babel/react"],
-						cacheDirectory: true,
-						plugins: ["react-hot-loader/babel"],
-					},
-				},
-				],
 			},
 			{
 				test: /\.module\.s(a|c)ss$/,
@@ -54,8 +36,13 @@ module.exports = {
 					{
 						loader: "css-loader",
 						options: {
-							modules: true,
-							sourceMap: true
+							modules: {
+								mode: "local",
+								exportGlobals: true,
+								localIdentName: "[path][name]__[local]--[hash:base64:5]",
+								context: path.resolve(__dirname, "src"),
+								hashPrefix: "my-custom-hash",
+							},
 						}
 					},
 					{
@@ -76,18 +63,8 @@ module.exports = {
 					{
 						loader: "css-loader",
 						options: {
-							sourceMap: true,
 							modules: true
 						}
-					},
-					{
-						loader: "postcss-loader",
-						options: {
-							sourceMap: true,
-							plugins: [
-								autoprefixer,
-							],
-						},
 					},
 					{
 						loader: "sass-loader",
@@ -158,5 +135,11 @@ module.exports = {
 			favicon: path.join(`${__dirname}/favicon.ico`)
 		}),
 		new ErrorOverlayPlugin()
-	],
+	], 
+	devServer: {
+		historyApiFallback: true,
+		port: 3000,
+		hot: true,
+	},
+	devtool: "cheap-module-source-map",
 };
