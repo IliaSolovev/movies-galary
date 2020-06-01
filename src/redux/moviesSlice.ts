@@ -37,7 +37,7 @@ export interface State {
     isLoading: boolean
 }
 
-const initialState: State = {
+export const initialState: State = {
     movies: {
         data: [],
         total: 0,
