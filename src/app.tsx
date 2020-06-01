@@ -6,12 +6,14 @@ import FindMovie from "./Pages/FindMovie/FindMovie";
 import FoundMovie from "./Pages/FoundMovie/FoundMovie";
 import CatchError from "./components/CatchError/CatchError";
 import {Provider} from 'react-redux';
-import store from "./redux/store";
+import store, { persistor } from "./redux/store";
+import {PersistGate} from "redux-persist/integration/react";
 const App: React.FC = (props) => {
 
     return (
         // <CatchError>
            <Provider store={store}>
+               <PersistGate loading={null} persistor={persistor}>
                 <Router>
                     <Route path='/movie/:movieId'>
                         <FoundMovie/>
@@ -20,6 +22,7 @@ const App: React.FC = (props) => {
                         <FindMovie/>
                     </Route>
                 </Router>
+                   </PersistGate>
         </Provider>
          // </CatchError>
     )

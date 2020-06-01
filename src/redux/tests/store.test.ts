@@ -8,7 +8,7 @@ import {
     selectMovie,
     setIsLoading,
     SearchType, Filters
-} from './moviesSlice';
+} from '../moviesSlice';
 
 const movie1 = {
     id: 337167,
