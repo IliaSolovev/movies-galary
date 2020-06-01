@@ -6,7 +6,7 @@ interface Props {
 }
 
 const WhiteSearchButton = (props: Props) => {
-    return <button className={s.button}>Search</button>
+    return <button className={s.button}>search</button>
 }
 
 export default WhiteSearchButton

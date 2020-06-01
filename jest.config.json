@@ -4,7 +4,8 @@
   "collectCoverage": true,
   "bail": true,
   "verbose": true,
-  "collectCoverageFrom" : ["./src/test/*.spec.ts", "!**/node_modules/**", "!**/vendor/**"],
+  "roots": ["./src"],
+  "collectCoverageFrom" : ["/test/*.spec.ts", "!**/node_modules/**", "!**/vendor/**","!./cypress"],
   "setupFilesAfterEnv": ["./setupJest.ts"],
   "transform": {
     ".+\\.(css|scss)$": "jest-css-modules-transform"
