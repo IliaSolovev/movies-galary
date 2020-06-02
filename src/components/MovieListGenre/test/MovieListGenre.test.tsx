@@ -1,6 +1,7 @@
 import React from "react";
 import {shallow} from "enzyme";
 import MovieListGenre from "../MovieListGenre";
+import toJson from "enzyme-to-json";
 
 const data = {
     id: 337167,
@@ -22,5 +23,5 @@ const data = {
 
 it('should render movie list genre', () => {
     const component = shallow(<MovieListGenre data={data}/>);
-    expect(component).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
 });

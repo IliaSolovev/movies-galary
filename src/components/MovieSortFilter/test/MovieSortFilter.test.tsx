@@ -2,6 +2,7 @@ import React from "react";
 import {shallow} from "enzyme";
 import MovieSortFilter from "../MovieSortFilter";
 import FilterButton from "../FilterButton/FilterButton";
+import toJson from "enzyme-to-json";
 const data = {
     id: 337167,
     title: "Fifty Shades Freed",
@@ -22,9 +23,9 @@ const data = {
 
 it('should render sort filter', () => {
     const component = shallow(<MovieSortFilter currentFilter={'rating'} movieCount={6} onSetMoviesSortFilter={ () => {}}/>);
-    expect(component).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
 });
 it('should render sort button',() => {
     const component = shallow(<FilterButton text={'asd'} isActive={true} onClick={() => {}}/>);
-    expect(component).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
 });

@@ -1,6 +1,8 @@
 import React from "react";
 import {shallow} from "enzyme";
 import MovieCard from "../MovieCard/MovieCard";
+import toJson from "enzyme-to-json";
+import MoviesList from "../MoviesList";
 
 const data = {
     id: 337167,
@@ -22,5 +24,12 @@ const data = {
 
 it('should render movie card', () => {
     const component = shallow(<MovieCard data={data}/>);
-    expect(component).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
+});
+it('should render movie list', () => {
+    const component = shallow(<MoviesList sortFilter={"rating"} movies={[data,data]}/>);
+    expect(toJson(component)).toMatchSnapshot();
+});
+it('should render 2 movie', () => {
+    
 });

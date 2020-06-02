@@ -4,6 +4,8 @@ import SearchField from "../Field/SearchField";
 import SearchButton from "../SearchButton/SearchButton";
 import SearchMovieFiltersButton from "../SearchMovieFilters/SearchMovieFiltersButton/SearchMovieFiltersButton";
 import SearchMovieFilters from "../SearchMovieFilters/SearchMovieFilters";
+import toJson from "enzyme-to-json";
+import SearchMovieForm from "../SearchMovieForm";
 const data = {
     id: 337167,
     title: "Fifty Shades Freed",
@@ -24,17 +26,21 @@ const data = {
 
 it('should render search field', () => {
     const component = shallow(<SearchField value={'asd'} onChange={() => {}}/>);
-    expect(component).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
 });
 it('should render search button',() => {
     const component = shallow(<SearchButton onClick={() => {}}/>);
-    expect(component).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
 });
 it('should render search movie filter button',() => {
     const component = shallow(<SearchMovieFiltersButton onClick={() => {}} isActive={true} text={'asd'}/>);
-    expect(component).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
 });
 it('should render search movie filter ',() => {
     const component = mount(<SearchMovieFilters searchType={'genre'} onSelectType={() => {}}/>);
-    expect(component).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
+});
+it('should render search movie form ',() => {
+    const component = mount(<SearchMovieForm searchType={'title'} fieldValue={'asd'} onFieldChange={() => {}} onSelectType={() => {}} search={() => {}}/>);
+    expect(toJson(component)).toMatchSnapshot();
 });

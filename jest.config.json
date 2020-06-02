@@ -5,9 +5,13 @@
   "bail": true,
   "verbose": true,
   "roots": ["./src"],
-  "collectCoverageFrom" : ["/test/*.spec.ts", "!**/node_modules/**", "!**/vendor/**","!./cypress"],
+  "collectCoverageFrom" : ["src/components/**/*.{ts,tsx}","src/redux/moviesSlice.ts", "src/services/*.{ts,tsx}"],
   "setupFilesAfterEnv": ["./setupJest.ts"],
   "transform": {
     ".+\\.(css|scss)$": "jest-css-modules-transform"
-  }
+  },
+  "testPathIgnorePatterns": [
+    "<rootDir>/Pages",
+    "<rootDir>/stories"
+  ]
 }

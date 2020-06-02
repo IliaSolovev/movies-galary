@@ -1,8 +1,9 @@
 import React from "react";
-import {shallow,mount } from "enzyme";
+import { shallow } from "enzyme";
 import FilmsNotFound from "../FilmsNotFound";
+import toJson from "enzyme-to-json";
 
-it('should render films not found', () => {
-    const component = shallow(<FilmsNotFound/>);
-    expect(component).toMatchSnapshot();
+it("should render films not found", () => {
+	const component = shallow(<FilmsNotFound/>);
+	expect(toJson(component)).toMatchSnapshot();
 });
