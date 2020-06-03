@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render sort button 1`] = `
+<button
+  className="button button_active"
+  onClick={[Function]}
+>
+  asd
+</button>
+`;
+
+exports[`should render sort filter 1`] = `
+<div
+  className="container"
+>
+  <div>
+    <div
+      className="movieCounter"
+    >
+      6
+       movies found
+    </div>
+    <div
+      className="filters"
+    >
+      <div>
+        Sort by
+      </div>
+      <div
+        className="filter__buttons"
+      >
+        <FilterButton
+          isActive={false}
+          key="0"
+          onClick={[Function]}
+          text="release date"
+        />
+        <FilterButton
+          isActive={true}
+          key="1"
+          onClick={[Function]}
+          text="rating"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

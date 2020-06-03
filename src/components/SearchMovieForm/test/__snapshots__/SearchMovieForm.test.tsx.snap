@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render search button 1`] = `
+<button
+  className="button"
+  onClick={[Function]}
+>
+  search
+</button>
+`;
+
+exports[`should render search field 1`] = `
+<Fragment>
+  <input
+    className="input"
+    onChange={[Function]}
+    type="text"
+    value="asd"
+  />
+</Fragment>
+`;
+
+exports[`should render search movie filter  1`] = `
+<SearchMovieFilters
+  onSelectType={[Function]}
+  searchType="genre"
+>
+  <div
+    className="searchMovieFilters"
+  >
+    <div
+      className="searchBy"
+    >
+      search by
+    </div>
+    <div
+      className="buttons"
+    >
+      <SearchMovieFiltersButton
+        isActive={false}
+        key="0"
+        onClick={[Function]}
+        text="title"
+      >
+        <button
+          className="button  "
+          onClick={[Function]}
+        >
+          title
+        </button>
+      </SearchMovieFiltersButton>
+      <SearchMovieFiltersButton
+        isActive={true}
+        key="1"
+        onClick={[Function]}
+        text="genre"
+      >
+        <button
+          className="button  button_active"
+          onClick={[Function]}
+        >
+          genre
+        </button>
+      </SearchMovieFiltersButton>
+    </div>
+  </div>
+</SearchMovieFilters>
+`;
+
+exports[`should render search movie filter button 1`] = `
+<button
+  className="button  button_active"
+  onClick={[Function]}
+>
+  asd
+</button>
+`;
+
+exports[`should render search movie form  1`] = `
+<SearchMovieForm
+  fieldValue="asd"
+  onFieldChange={[Function]}
+  onSelectType={[Function]}
+  search={[Function]}
+  searchType="title"
+>
+  <div
+    className="searchMovie"
+  >
+    <div
+      className="searchMovie__title"
+    >
+      find your movie
+    </div>
+    <div>
+      <SearchField
+        onChange={[Function]}
+        value="asd"
+      >
+        <input
+          className="input"
+          onChange={[Function]}
+          type="text"
+          value="asd"
+        />
+      </SearchField>
+    </div>
+    <div
+      className="searchMovie__buttons"
+    >
+      <SearchMovieFilters
+        onSelectType={[Function]}
+        searchType="title"
+      >
+        <div
+          className="searchMovieFilters"
+        >
+          <div
+            className="searchBy"
+          >
+            search by
+          </div>
+          <div
+            className="buttons"
+          >
+            <SearchMovieFiltersButton
+              isActive={true}
+              key="0"
+              onClick={[Function]}
+              text="title"
+            >
+              <button
+                className="button  button_active"
+                onClick={[Function]}
+              >
+                title
+              </button>
+            </SearchMovieFiltersButton>
+            <SearchMovieFiltersButton
+              isActive={false}
+              key="1"
+              onClick={[Function]}
+              text="genre"
+            >
+              <button
+                className="button  "
+                onClick={[Function]}
+              >
+                genre
+              </button>
+            </SearchMovieFiltersButton>
+          </div>
+        </div>
+      </SearchMovieFilters>
+      <SearchButton
+        onClick={[Function]}
+      >
+        <button
+          className="button"
+          onClick={[Function]}
+        >
+          search
+        </button>
+      </SearchButton>
+    </div>
+  </div>
+</SearchMovieForm>
+`;

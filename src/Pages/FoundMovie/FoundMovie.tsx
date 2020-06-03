@@ -22,6 +22,7 @@ const FoundMovie: React.FC<Props> = (props) => {
     const dispatch = useDispatch();
     const {isLoading,selectedMovie,movies} = useSelector((state: RootState) => state.movies);
     let {movieId} = useParams();
+
     useEffect(() => {
         dispatch(setIsLoading(true));
         movieApi.fetchMovie(movieId).then((movie: Movie) => {
@@ -30,6 +31,7 @@ const FoundMovie: React.FC<Props> = (props) => {
             dispatch(setIsLoading(false));
         });
     }, [movieId]);
+
     return (
         <div>
             {isLoading && <p>Loading ...</p>}

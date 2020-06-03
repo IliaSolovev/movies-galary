@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render movie list genre 1`] = `
+<div
+  className="container"
+>
+  <div>
+    Films by 
+    <span
+      className="genre"
+    >
+      Drama
+       genre
+    </span>
+  </div>
+</div>
+`;

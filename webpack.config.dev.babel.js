@@ -3,7 +3,6 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ErrorOverlayPlugin = require("error-overlay-webpack-plugin");
-const autoprefixer = require("autoprefixer");
 
 const paths = {
 	src: path.resolve(__dirname, "src"),
@@ -17,7 +16,8 @@ module.exports = {
 	},
 	output: {
 		path: paths.dist,
-		filename: "[name].bundle.js"
+		filename: "[name].bundle.js",
+		publicPath: "/"
 	},
 	resolve: {
 		extensions: [".ts", ".tsx", ".js", ".jsx", ".scss"]
