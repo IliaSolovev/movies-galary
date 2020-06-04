@@ -1,25 +1,32 @@
 import React from 'react';
-import s from './movieCard.module.scss';
+
 import { Movie } from '../../../redux/moviesSlice';
 
+import style from './movieCard.module.scss';
+
 interface Props {
-    data: Movie
+    movie: Movie
 }
 
-const MovieCard: React.FC<Props> = ({ data, ...rest }: Props) => (
-  <div className={s.movieCard}>
-    <div className={s.movieCard__poster}>
-      <img src={data.poster_path} alt={data.title} />
-    </div>
+export const MovieCard: React.FC<Props> = ({ movie }) => {
+  const {
+    poster_path, title, genres, release_date,
+  } = movie;
+  return (
+    <div className={style.movieCard}>
 
-    <div className={s.movieCard__description}>
-      <div className={s.description__titleAndGenre}>
-        <div className={s.description__title}>{data.title}</div>
-        <div className={s.description__genre}>{data.genres.join(' & ')}</div>
+      <div className={style.movieCard__poster}>
+        <img src={poster_path} alt={title} />
       </div>
-      <div className={s.description__year}>{data.release_date.split('-')[0]}</div>
-    </div>
-  </div>
-);
 
-export default MovieCard;
+      <div className={style.movieCard__description}>
+        <div className={style.description__titleAndGenre}>
+          <div className={style.description__title}>{title}</div>
+          <div className={style.description__genre}>{genres.join(' & ')}</div>
+        </div>
+        <div className={style.description__year}>{release_date.split('-')[0]}</div>
+      </div>
+
+    </div>
+  );
+};

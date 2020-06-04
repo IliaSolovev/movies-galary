@@ -1,15 +1,11 @@
 import React from 'react';
+
+import { Logo } from '../Logo/Logo';
+
 import s from './footer.module.scss';
-import MainTitle from '../MainTitle/MainTitle';
 
-interface Props {
-
-}
-
-const Footer = (props: Props) => (
+export const Footer: React.FC = () => (
   <footer className={s.footer}>
-    <MainTitle />
+    <Logo />
   </footer>
 );
-
-export default Footer;

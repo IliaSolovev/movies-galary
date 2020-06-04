@@ -1,41 +1,39 @@
 import React from 'react';
-import s from './movieDescription.module.scss';
+
 import { Movie } from '../../redux/moviesSlice';
 
+import style from './movieDescription.module.scss';
+
 interface Props {
-    data: Movie
+    movie: Movie
 }
 
-const MovieDescription: React.FC<Props> = ({ data, ...rest }) => (
-  <div className={s.content}>
-    {data === null && <p>Loading...</p>}
-    {data
-            && (
-            <>
-              <div className={s.poster}>
-                <img src={data.poster_path} alt={data.title} />
+export const MovieDescription: React.FC<Props> = ({ movie }) => (
+  <div className={style.content}>
+    { movie === null ? <p>Loading...</p>
+      : (
+        <>
+          <div className={style.poster}>
+            <img src={movie.poster_path} alt={movie.title} />
+          </div>
+          <div className={style.description}>
+            <h3 className={style.description__title}>
+              {movie.title}
+              {' '}
+              <div className={style.description__rating}>{movie.vote_average}</div>
+            </h3>
+            <h4 className={style.description__subtitle}>{movie.tagline}</h4>
+            <div className={style.description__durationRelease}>
+              <div className={style.description__release}>{movie.release_date.split('-')[0]}</div>
+              <div className={style.description__duration}>
+                {movie.runtime}
+                {' '}
+                min
               </div>
-              <div className={s.description}>
-                <h3 className={s.description__title}>
-                  {data.title}
-                  {' '}
-                  <div className={s.description__rating}>{data.vote_average}</div>
-                </h3>
-                <h4 className={s.description__subtitle}>{data.tagline}</h4>
-                <div className={s.description__durationRelease}>
-                  <div className={s.description__release}>{data.release_date.split('-')[0]}</div>
-                  <div className={s.description__duration}>
-                    {data.runtime}
-                    {' '}
-                    min
-                  </div>
-                </div>
-                <div className={s.description__overview}>{data.overview}</div>
-              </div>
-            </>
-            )}
-
+            </div>
+            <div className={style.description__overview}>{movie.overview}</div>
+          </div>
+        </>
+      )}
   </div>
 );
-
-export default MovieDescription;

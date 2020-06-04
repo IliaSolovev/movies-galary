@@ -1,60 +1,49 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import bgS from '../bgStyles.module.scss';
-import Header from '../../components/Header/Header';
-import MainTitle from '../../components/MainTitle/MainTitle';
-import MoviesList from '../../components/MoviesList/MoviesList';
-import Footer from '../../components/Footer/Footer';
+
+import { Header } from '../../components/Header/Header';
+import { Logo } from '../../components/Logo/Logo';
+import { MoviesList } from '../../components/MoviesList/MoviesList';
+import { Footer } from '../../components/Footer/Footer';
 import WhiteSearchButton from '../../components/MovieDescription/WhiteSearchButton/WhiteSearchButton';
-import MovieDescription from '../../components/MovieDescription/MovieDescription';
+import { MovieDescription } from '../../components/MovieDescription/MovieDescription';
 import MovieListGenre from '../../components/MovieListGenre/MovieListGenre';
-import { movieApi } from '../../services/Api';
-import CatchError from '../../components/CatchError/CatchError';
+import { CatchError } from '../../components/CatchError/CatchError';
 import { RootState } from '../../redux/store';
-import {
-  fetchMovies, Movie, selectMovie, setIsLoading,
-} from '../../redux/moviesSlice';
+import { fetchMovie } from '../../redux/moviesSlice';
 
+import bgStyle from '../bgStyles.module.scss';
 
-const FoundMovie: React.FC = () => {
+export const FoundMovie: React.FC = () => {
   const dispatch = useDispatch();
   const { isLoading, selectedMovie, movies } = useSelector((state: RootState) => state.movies);
   const { movieId } = useParams();
 
-  React.useEffect(() => {
-    dispatch(setIsLoading(true));
-    movieApi.fetchMovie(movieId).then((movie: Movie) => {
-      dispatch(selectMovie(movie));
-      dispatch(fetchMovies(movie.genres[0], 'genre'));
-      dispatch(setIsLoading(false));
-    });
+  useEffect(() => {
+    dispatch(fetchMovie(movieId));
   }, [movieId]);
 
   return (
     <div>
-      {isLoading && <p>Loading ...</p>}
-      {!isLoading
-            && (
-            <>
-              <div className={bgS.bgContainer}>
-                <Header>
-                  <MainTitle />
-                  <Link to="/">
-                    <WhiteSearchButton />
-                  </Link>
-                </Header>
-                <MovieDescription data={selectedMovie} />
-              </div>
-              <CatchError>
-                <MovieListGenre data={selectedMovie} />
-              </CatchError>
-              <MoviesList movies={movies.data} sortFilter="rating" />
-              <Footer />
-            </>
-            )}
+      {isLoading ? <p>Loading ...</p> : (
+        <>
+          <div className={bgStyle.bgContainer}>
+            <Header>
+              <Logo />
+              <Link to="/">
+                <WhiteSearchButton />
+              </Link>
+            </Header>
+            <MovieDescription movie={selectedMovie} />
+          </div>
+          <CatchError>
+            <MovieListGenre data={selectedMovie} />
+          </CatchError>
+          <MoviesList movies={movies.data} sortFilter="rating" />
+          <Footer />
+        </>
+      )}
     </div>
   );
 };
-
-export default FoundMovie;

@@ -1,10 +1,9 @@
 import React from 'react';
-import s from './header.module.scss';
 
-const Header:React.FC = (props) => (
-  <header className={s.header}>
+import style from './header.module.scss';
+
+export const Header:React.FC = (props) => (
+  <header className={style.header}>
     {props.children}
   </header>
 );
-
-export default Header;

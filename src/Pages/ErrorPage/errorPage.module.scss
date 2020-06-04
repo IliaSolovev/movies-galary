@@ -1,0 +1,15 @@
+@import "../../styles/variables";
+.errorPage{
+  &__statusCode{
+    margin-top: 150px;
+    font-family: $mainFont;
+    font-size: 3.5em;
+    text-align: center;
+  }
+  &__errorMessage{
+    margin-top: 30px;
+    font-family: $mainFont;
+    font-size: 1.5em;
+    text-align: center;
+  }
+}

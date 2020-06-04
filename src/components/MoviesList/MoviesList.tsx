@@ -1,28 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import MovieCard from './MovieCard/MovieCard';
-import s from './moviesList.module.scss';
+
+import { MovieCard } from './MovieCard/MovieCard';
 import { SortFunctions } from '../../services/SortMoviesList';
-import FilmsNotFound from '../FilmsNotFound/FilmsNotFound';
+import { FilmsNotFound } from '../FilmsNotFound/FilmsNotFound';
 import { Filters, Movie } from '../../redux/moviesSlice';
+
+import style from './moviesList.module.scss';
+
 
 interface Props {
     movies: Movie[],
     sortFilter: Filters
 }
 
-const MoviesList: React.FC<Props> = ({ movies = [], sortFilter }) => {
+export const MoviesList: React.FC<Props> = ({ movies = [], sortFilter }) => {
   const sortFn = sortFilter === 'rating' ? SortFunctions.rating : SortFunctions.releaseDate;
+
   const moviesCard = [...movies].sort(sortFn)
-    .map((movie) => <Link to={`/movie/${movie.id}`} key={movie.id}><MovieCard data={movie} /></Link>);
+    .map((movie) => <Link to={`/movie/${movie.id}`} key={movie.id}><MovieCard movie={movie} /></Link>);
+
   return (
-    <>
-      <div className={s.movieList}>
-        {movies.length === 0 && <FilmsNotFound />}
-        {movies.length !== 0 && moviesCard}
-      </div>
-    </>
+    <div className={style.movieList}>
+      { movies.length === 0 ? <FilmsNotFound /> : moviesCard }
+    </div>
   );
 };
-
-export default MoviesList;
