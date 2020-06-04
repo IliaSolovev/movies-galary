@@ -9,7 +9,8 @@ module.exports = {
       options: {
         presets: [['react-app', { flow: false, typescript: true }]],
       },
-    });config.module.rules.push({
+    });
+    config.module.rules.push({
       test: /\.(sa|sc|c)ss$/,
       use: [
         {

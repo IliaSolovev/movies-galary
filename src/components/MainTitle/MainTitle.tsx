@@ -1,14 +1,8 @@
-import React from "react";
-import s from "./mainTitle.module.scss";
+import React from 'react';
+import s from './mainTitle.module.scss';
 
-interface Props {
+const MainTitle: React.FC = () => (
+  <div className={s.title}>netflixroulette</div>
+);
 
-}
-
-const MainTitle = (props: Props) => {
-    return (
-            <div className={s.title}>netflixroulette</div>
-    )
-}
-
-export default MainTitle
+export default MainTitle;

@@ -3,4 +3,3 @@ node_modules
 dist/
 coverage/
 __snapshots__/
-custom.d.ts
