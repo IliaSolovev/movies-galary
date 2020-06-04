@@ -1,5 +1,5 @@
-import {Action, createSlice, PayloadAction, ThunkAction} from "@reduxjs/toolkit";
-import {movieApi} from "../services/Api";
+import { Action, createSlice, PayloadAction, ThunkAction } from "@reduxjs/toolkit";
+import { movieApi } from "../services/Api";
 
 export interface Movie {
     "id": number,
@@ -24,7 +24,7 @@ export interface Movies {
 }
 
 export type Filters = "rating" | "release date";
-export type SearchType = 'genre' | 'title';
+export type SearchType = "genre" | "title";
 
 export interface State {
     movies: Movies,
@@ -38,61 +38,61 @@ export interface State {
 }
 
 export const initialState: State = {
-    movies: {
-        data: [],
-        total: 0,
-        offset: 0,
-        limit: 0,
-    },
-    selectedMovie: null,
-    moviesSortFilter: "rating",
-    searchData: {
-        searchType: 'genre',
-        fieldValue: '',
-    },
-    isLoading: false
+	movies: {
+		data: [],
+		total: 0,
+		offset: 0,
+		limit: 0,
+	},
+	selectedMovie: null,
+	moviesSortFilter: "rating",
+	searchData: {
+		searchType: "genre",
+		fieldValue: "",
+	},
+	isLoading: false
 };
 
 const moviesSlice = createSlice({
-    name: 'movie',
-    initialState,
-    reducers: {
-        addMovies(state, action: PayloadAction<Movies>) {
-            state.movies = action.payload;
-        },
-        setSearchType(state, action: PayloadAction<SearchType>) {
-            state.searchData.searchType = action.payload;
-        },
-        setFieldValue(state, action: PayloadAction<string>) {
-            state.searchData.fieldValue = action.payload;
-        },
-        setMoviesSortFilter(state, action: PayloadAction<Filters>) {
-            state.moviesSortFilter = action.payload;
-        },
-        selectMovie(state, action: PayloadAction<Movie>) {
-            state.selectedMovie = action.payload;
-        },
-        setIsLoading(state, action: PayloadAction<boolean>) {
-            state.isLoading = action.payload;
-        }
-    }
+	name: "movie",
+	initialState,
+	reducers: {
+		addMovies(state, action: PayloadAction<Movies>) {
+			state.movies = action.payload;
+		},
+		setSearchType(state, action: PayloadAction<SearchType>) {
+			state.searchData.searchType = action.payload;
+		},
+		setFieldValue(state, action: PayloadAction<string>) {
+			state.searchData.fieldValue = action.payload;
+		},
+		setMoviesSortFilter(state, action: PayloadAction<Filters>) {
+			state.moviesSortFilter = action.payload;
+		},
+		selectMovie(state, action: PayloadAction<Movie>) {
+			state.selectedMovie = action.payload;
+		},
+		setIsLoading(state, action: PayloadAction<boolean>) {
+			state.isLoading = action.payload;
+		}
+	}
 });
 
 
 export type MovieThunk = ThunkAction<void, typeof moviesSlice, unknown, Action<string>>
-export const {addMovies, setSearchType, setFieldValue, setMoviesSortFilter, selectMovie,setIsLoading} = moviesSlice.actions;
+export const { addMovies, setSearchType, setFieldValue, setMoviesSortFilter, selectMovie,setIsLoading } = moviesSlice.actions;
 
-export const fetchMovies = (fieldValue: string, searchType: SearchType): MovieThunk => async dispatch => {
-    dispatch(setFieldValue(''));
-    let params;
-    if (searchType === "genre") {
-        params = `search=${fieldValue}&searchBy=${searchType}s`;
-    } else {
-        params = `search=${fieldValue}&searchBy=${searchType}`;
-    }
-    const movies = await movieApi.fetchMovies(params);
+export const fetchMovies = (fieldValue: string, searchType: SearchType): MovieThunk => async (dispatch): Promise<void> => {
+	dispatch(setFieldValue(""));
+	let params;
+	if (searchType === "genre") {
+		params = `search=${fieldValue}&searchBy=${searchType}s`;
+	} else {
+		params = `search=${fieldValue}&searchBy=${searchType}`;
+	}
+	const movies = await movieApi.fetchMovies(params);
 
-    dispatch(addMovies(movies))
+	dispatch(addMovies(movies));
 };
 
 

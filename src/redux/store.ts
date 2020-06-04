@@ -1,15 +1,15 @@
-import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
-import {moviesReducer} from "./moviesSlice";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import { moviesReducer } from "./moviesSlice";
 
 const reducers = combineReducers({
-    movies: moviesReducer
+	movies: moviesReducer
 });
 
 const persistConfig = {
-    key: 'root',
-    storage,
+	key: "root",
+	storage,
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
@@ -17,7 +17,7 @@ const persistedReducer = persistReducer(persistConfig, reducers);
 export type RootState = ReturnType<typeof reducers>;
 
 const store = configureStore({
-    reducer: persistedReducer
+	reducer: persistedReducer
 });
 export const persistor = persistStore(store);
 

@@ -8,9 +8,10 @@ module.exports = {
     "eslint:recommended",
     "prettier",
     "plugin:jest/recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
-  "plugins": ["babel","jest","react"],
+  "plugins": ["babel","jest","react","@typescript-eslint"],
   "parserOptions": {
     "sourceType": "module",
   },
