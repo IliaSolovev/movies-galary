@@ -1,6 +1,8 @@
 import React from 'react';
 import { MovieCard } from '../components/MoviesList/MovieCard/MovieCard';
 
+export default { title: 'Card' };
+
 
 const data = {
   id: 337167,

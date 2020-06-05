@@ -6,10 +6,10 @@ import { Header } from '../../components/Header/Header';
 import { Logo } from '../../components/Logo/Logo';
 import { MoviesList } from '../../components/MoviesList/MoviesList';
 import { Footer } from '../../components/Footer/Footer';
-import WhiteSearchButton from '../../components/MovieDescription/WhiteSearchButton/WhiteSearchButton';
 import { MovieDescription } from '../../components/MovieDescription/MovieDescription';
 import { MovieListGenre } from '../../components/MovieListGenre/MovieListGenre';
 import { CatchError } from '../../components/CatchError/CatchError';
+import { Button } from '../../components/Button/Button';
 import { RootState } from '../../redux/store';
 import { fetchMovie } from '../../redux/moviesSlice';
 
@@ -32,7 +32,7 @@ export const FoundMovie: React.FC = () => {
             <Header>
               <Logo />
               <Link to="/">
-                <WhiteSearchButton />
+                <Button type="whiteSearch">search</Button>
               </Link>
             </Header>
             <MovieDescription movie={selectedMovie} />

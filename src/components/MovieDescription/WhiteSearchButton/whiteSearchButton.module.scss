@@ -1,22 +1,4 @@
 @import "../../../styles/variables";
 
-.button {
-  width: 100px;
-  height: 30px;
-  margin-left: 10px;
-  border-radius: 2px;
-  border: none;
-  background: #fff;
-  cursor: pointer;
-  font-family: $mainFont;
-  color: $redColor;
-  font-weight: normal;
-  font-size: .8em;
-  text-transform: uppercase;
-  transition: opacity .2s ease;
 
-  &:hover {
-    opacity: .8;
-  }
-}
 

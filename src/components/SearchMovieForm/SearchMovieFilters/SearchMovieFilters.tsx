@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SearchMovieFiltersButton } from './SearchMovieFiltersButton/SearchMovieFiltersButton';
+import { Button } from '../../Button/Button';
 
 import style from './searchMovieFilters.module.scss';
 
@@ -11,12 +11,14 @@ interface Props {
 
 export const SearchMovieFilters: React.FC<Props> = ({ searchType, onSelectType }) => {
   const buttons = ['title', 'genre'].map((type, id) => (
-    <SearchMovieFiltersButton
-      text={type}
+    <Button
       key={id}
-      isActive={searchType === type}
-      onClick={onSelectType}
-    />
+      active={searchType === type}
+      onClick={() => onSelectType(type)}
+      type="searchFilter"
+    >
+      {type}
+    </Button>
   ));
   return (
     <div className={style.searchMovieFilters}>

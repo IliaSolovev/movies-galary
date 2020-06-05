@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import WhiteSearchButton from '../WhiteSearchButton/WhiteSearchButton';
 import { MovieDescription } from '../MovieDescription';
 
 const data = {
@@ -24,10 +23,7 @@ const data = {
   runtime: 106,
 };
 
-it('should render white search button', () => {
-  const component = shallow(<WhiteSearchButton />);
-  expect(toJson(component)).toMatchSnapshot();
-});
+
 it('should render movie description', () => {
   const component = shallow(<MovieDescription movie={data} />);
   expect(toJson(component)).toMatchSnapshot();

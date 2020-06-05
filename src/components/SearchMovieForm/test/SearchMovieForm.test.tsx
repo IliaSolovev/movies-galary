@@ -2,7 +2,6 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { SearchField } from '../Field/SearchField';
-import SearchButton from '../SearchButton/SearchButton';
 import { SearchMovieFiltersButton } from '../SearchMovieFilters/SearchMovieFiltersButton/SearchMovieFiltersButton';
 import { SearchMovieFilters } from '../SearchMovieFilters/SearchMovieFilters';
 import { SearchMovieForm } from '../SearchMovieForm';
@@ -32,10 +31,7 @@ it('should render search field', () => {
   const component = shallow(<SearchField value="asd" onChange={() => {}} />);
   expect(toJson(component)).toMatchSnapshot();
 });
-it('should render search button', () => {
-  const component = shallow(<SearchButton onClick={() => {}} />);
-  expect(toJson(component)).toMatchSnapshot();
-});
+
 it('should render search movie filter button', () => {
   const component = shallow(<SearchMovieFiltersButton onClick={() => {}} isActive text="asd" />);
   expect(toJson(component)).toMatchSnapshot();

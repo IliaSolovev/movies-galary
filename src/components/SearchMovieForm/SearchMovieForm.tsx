@@ -2,8 +2,8 @@ import React from 'react';
 
 import { SearchField } from './Field/SearchField';
 import { SearchMovieFilters } from './SearchMovieFilters/SearchMovieFilters';
-import SearchButton from './SearchButton/SearchButton';
 import { SearchType } from '../../redux/moviesSlice';
+import { Button } from '../Button/Button';
 
 import style from './searchMovieForm.module.scss';
 
@@ -25,7 +25,7 @@ export const SearchMovieForm: React.FC<Props> = ({
     </div>
     <div className={style.searchMovie__buttons}>
       <SearchMovieFilters searchType={searchType} onSelectType={onSelectType} />
-      <SearchButton onClick={search} />
+      <Button onClick={search} type="search">search</Button>
     </div>
   </div>
 );

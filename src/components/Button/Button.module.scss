@@ -1,11 +1,9 @@
 @import '../../styles/variables';
 @import '../../styles/main';
 
-.button{
+.button {
   font-family: $mainFont;
   color: #fff;
-  margin-left: 10px;
-  border-radius: 2px;
   border: none;
   cursor: pointer;
   font-weight: normal;
@@ -16,4 +14,43 @@
   &:hover {
     opacity: .8;
   }
+
+  &__search {
+    width: 170px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 2px;
+    background: $redColor;
+  }
+
+  &__whiteSearch {
+    width: 100px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 2px;
+    background: #fff;
+    color: $redColor;
+  }
+
+  &__searchFilter {
+    padding: 2px 15px;
+    border-radius: 2px;
+    background: #676767;
+
+    &_active {
+      background: $redColor;
+    }
+  }
+
+  &__sortFilter {
+    background: none;
+    color: #2a2a2a;
+    text-transform: lowercase;
+    font-size: 1em;
+
+    &_active {
+      color: $redColor
+    }
+  }
 }
+
