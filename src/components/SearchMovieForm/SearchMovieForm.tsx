@@ -3,7 +3,7 @@ import React from 'react';
 import { SearchField } from './Field/SearchField';
 import { SearchMovieFilters } from './SearchMovieFilters/SearchMovieFilters';
 import { SearchType } from '../../redux/moviesSlice';
-import { Button } from '../Button/Button';
+import { Button } from '..';
 
 import style from './searchMovieForm.module.scss';
 

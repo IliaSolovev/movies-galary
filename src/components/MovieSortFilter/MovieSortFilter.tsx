@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Filters } from '../../redux/moviesSlice';
-import { Button } from '../Button/Button';
+import { Button } from '..';
 
 import style from './movieSortFilter.module.scss';
 

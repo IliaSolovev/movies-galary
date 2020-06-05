@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 
-import { FindMovie } from './Pages/FindMovie/FindMovie';
-import { FoundMovie } from './Pages/FoundMovie/FoundMovie';
-import { CatchError } from './components/CatchError/CatchError';
-import { ErrorPage } from './Pages/ErrorPage/ErrorPage';
+import { FindMovie, FoundMovie, ErrorPage } from './Pages';
+
+import { CatchError } from './components';
+
 
 import './styles/main.scss';
 import 'normalize.css';

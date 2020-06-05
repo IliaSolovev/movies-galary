@@ -2,14 +2,9 @@ import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Header } from '../../components/Header/Header';
-import { Logo } from '../../components/Logo/Logo';
-import { MoviesList } from '../../components/MoviesList/MoviesList';
-import { Footer } from '../../components/Footer/Footer';
-import { MovieDescription } from '../../components/MovieDescription/MovieDescription';
-import { MovieListGenre } from '../../components/MovieListGenre/MovieListGenre';
-import { CatchError } from '../../components/CatchError/CatchError';
-import { Button } from '../../components/Button/Button';
+import {
+  Header, Logo, MoviesList, Footer, MovieDescription, MovieListGenre, CatchError, Button,
+} from '../../components';
 import { RootState } from '../../redux/store';
 import { fetchMovie } from '../../redux/moviesSlice';
 

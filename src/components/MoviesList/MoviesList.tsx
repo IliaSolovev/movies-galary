@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { MovieCard } from './MovieCard/MovieCard';
 import { SortFunctions } from '../../services/SortMoviesList';
-import { FilmsNotFound } from '../FilmsNotFound/FilmsNotFound';
+import { FilmsNotFound } from '..';
 import { Filters, Movie } from '../../redux/moviesSlice';
 
 import style from './moviesList.module.scss';
