@@ -4,6 +4,6 @@ exports[`should render footer 1`] = `
 <footer
   className="footer"
 >
-  <Logo />
+  <Component />
 </footer>
 `;

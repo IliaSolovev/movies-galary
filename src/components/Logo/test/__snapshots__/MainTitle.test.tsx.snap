@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`should render main title 1`] = `
-<div
-  className="title"
->
-  netflixroulette
-</div>
-`;

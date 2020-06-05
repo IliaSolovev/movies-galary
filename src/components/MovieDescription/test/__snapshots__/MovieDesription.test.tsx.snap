@@ -39,7 +39,8 @@ exports[`should render movie description 1`] = `
       </div>
       <div>
         106
-         min
+         
+        min
       </div>
     </div>
     <div
@@ -49,12 +50,4 @@ exports[`should render movie description 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`should render white search button 1`] = `
-<button
-  className="button"
->
-  search
-</button>
 `;
