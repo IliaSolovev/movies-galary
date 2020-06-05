@@ -30,6 +30,7 @@
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
     "redux-persist": "^6.0.0",
+    "storybook": "^5.3.19",
     "transform-runtime": "0.0.0"
   },
   "devDependencies": {

@@ -8,7 +8,7 @@ import { MoviesList } from '../../components/MoviesList/MoviesList';
 import { Footer } from '../../components/Footer/Footer';
 import WhiteSearchButton from '../../components/MovieDescription/WhiteSearchButton/WhiteSearchButton';
 import { MovieDescription } from '../../components/MovieDescription/MovieDescription';
-import MovieListGenre from '../../components/MovieListGenre/MovieListGenre';
+import { MovieListGenre } from '../../components/MovieListGenre/MovieListGenre';
 import { CatchError } from '../../components/CatchError/CatchError';
 import { RootState } from '../../redux/store';
 import { fetchMovie } from '../../redux/moviesSlice';
@@ -38,7 +38,7 @@ export const FoundMovie: React.FC = () => {
             <MovieDescription movie={selectedMovie} />
           </div>
           <CatchError>
-            <MovieListGenre data={selectedMovie} />
+            <MovieListGenre movie={selectedMovie} />
           </CatchError>
           <MoviesList movies={movies.data} sortFilter="rating" />
           <Footer />

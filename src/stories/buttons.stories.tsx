@@ -2,7 +2,7 @@ import React from 'react';
 import WhiteSearchButton from '../components/MovieDescription/WhiteSearchButton/WhiteSearchButton';
 import SearchButton from '../components/SearchMovieForm/SearchButton/SearchButton';
 import FilterButton from '../components/MovieSortFilter/FilterButton/FilterButton';
-import SearchMovieFiltersButton
+import { SearchMovieFiltersButton }
   from '../components/SearchMovieForm/SearchMovieFilters/SearchMovieFiltersButton/SearchMovieFiltersButton';
 
 export default { title: 'Button' };

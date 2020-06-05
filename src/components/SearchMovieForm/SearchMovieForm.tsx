@@ -1,7 +1,7 @@
 import React from 'react';
 
-import SearchField from './Field/SearchField';
-import SearchMovieFilters from './SearchMovieFilters/SearchMovieFilters';
+import { SearchField } from './Field/SearchField';
+import { SearchMovieFilters } from './SearchMovieFilters/SearchMovieFilters';
 import SearchButton from './SearchButton/SearchButton';
 import { SearchType } from '../../redux/moviesSlice';
 
@@ -15,7 +15,7 @@ interface Props {
     search: () => void
 }
 
-const SearchMovieForm: React.FC<Props> = ({
+export const SearchMovieForm: React.FC<Props> = ({
   fieldValue, onFieldChange, searchType, onSelectType, search,
 }) => (
   <div className={style.searchMovie}>
@@ -29,5 +29,3 @@ const SearchMovieForm: React.FC<Props> = ({
     </div>
   </div>
 );
-
-export default SearchMovieForm;

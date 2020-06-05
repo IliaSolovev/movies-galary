@@ -1,0 +1,19 @@
+@import '../../styles/variables';
+@import '../../styles/main';
+
+.button{
+  font-family: $mainFont;
+  color: #fff;
+  margin-left: 10px;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  font-weight: normal;
+  font-size: .8em;
+  text-transform: uppercase;
+  transition: opacity .2s ease;
+
+  &:hover {
+    opacity: .8;
+  }
+}

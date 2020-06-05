@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Header } from '../../components/Header/Header';
 import { Logo } from '../../components/Logo/Logo';
-import MovieSortFilter from '../../components/MovieSortFilter/MovieSortFilter';
+import { MovieSortFilter } from '../../components/MovieSortFilter/MovieSortFilter';
 import { MoviesList } from '../../components/MoviesList/MoviesList';
 import { Footer } from '../../components/Footer/Footer';
-import SearchMovieForm from '../../components/SearchMovieForm/SearchMovieForm';
+import { SearchMovieForm } from '../../components/SearchMovieForm/SearchMovieForm';
 import { RootState } from '../../redux/store';
 import {
   setSearchType,

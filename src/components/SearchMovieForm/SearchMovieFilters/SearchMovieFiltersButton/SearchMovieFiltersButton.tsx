@@ -1,14 +1,18 @@
 import React from 'react';
-import s from './searchMovieFiltersButton.module.scss';
+
+import style from './searchMovieFiltersButton.module.scss';
 
 interface Props {
-    text: string,
-    isActive: boolean,
-    onClick: (value: string) => void
+  text: string;
+  isActive: boolean;
+  onClick: (value: string) => void;
 }
 
-const SearchMovieFiltersButton: React.FC<Props> = ({
-  text, isActive, onClick, ...rest
-}) => <button className={`${s.button}  ${isActive ? s.button_active : ''}`} onClick={() => onClick(text)}>{text}</button>;
-
-export default SearchMovieFiltersButton;
+export const SearchMovieFiltersButton: React.FC<Props> = ({ text, isActive, onClick }) => (
+  <button
+    className={`${style.button}  ${isActive ? style.button_active : ''}`}
+    onClick={() => onClick(text)}
+  >
+    {text}
+  </button>
+);

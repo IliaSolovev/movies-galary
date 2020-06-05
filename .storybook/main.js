@@ -1,5 +1,3 @@
-const autoprefixer = require("autoprefixer");
-
 module.exports = {
   stories: ['../src/**/*.stories.tsx'],
   webpackFinal: async config => {
@@ -22,15 +20,6 @@ module.exports = {
             sourceMap: true,
             modules: true
           }
-        },
-        {
-          loader: "postcss-loader",
-          options: {
-            sourceMap: true,
-            plugins: [
-              autoprefixer,
-            ],
-          },
         },
         {
           loader: "sass-loader",

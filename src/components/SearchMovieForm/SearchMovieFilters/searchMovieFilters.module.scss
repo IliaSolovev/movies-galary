@@ -5,15 +5,15 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-}
-.searchBy{
-  font-family: $mainFont;
-  text-transform: uppercase;
-  color: #fff;
-}
-.buttons{
-  width: 57%;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  &__searchBy{
+    font-family: $mainFont;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  &__buttons{
+    width: 57%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
 }
