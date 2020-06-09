@@ -1,4 +1,4 @@
-import { Movie } from "../redux/moviesSlice";
+import { Movie } from '../redux';
 
 export const SortFunctions = {
   releaseDate(movie1: Movie, movie2:Movie) {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Movie } from '../../redux/moviesSlice';
+import { Movie } from '../../redux';
 
 import style from './movieDescription.module.scss';
 

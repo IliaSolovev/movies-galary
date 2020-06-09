@@ -2,8 +2,8 @@ import React from 'react';
 
 import { SearchField } from './Field/SearchField';
 import { SearchMovieFilters } from './SearchMovieFilters/SearchMovieFilters';
-import { SearchType } from '../../redux/moviesSlice';
 import { Button } from '..';
+import { SearchType } from '../../redux/moviesReducer';
 
 import style from './searchMovieForm.module.scss';
 

@@ -1,6 +1,11 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import {
+  combineReducers, createStore, applyMiddleware, compose,
+} from 'redux';
+import ReduxThunk from 'redux-thunk';
+import { moviesReducer } from './moviesReducer';
 
-import { moviesReducer } from './moviesSlice';
+// @ts-ignore
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const reducers = combineReducers({
   movies: moviesReducer,
@@ -8,6 +13,9 @@ const reducers = combineReducers({
 
 export type RootState = ReturnType<typeof reducers>;
 
-export const store = configureStore({
-  reducer: reducers,
-});
+export const store = createStore(
+  reducers,
+  composeEnhancers(
+    applyMiddleware(ReduxThunk),
+  ),
+);

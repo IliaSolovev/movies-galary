@@ -1,31 +1,42 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 
 import {
   Header, Logo, MovieSortFilter, MoviesList, Footer, SearchMovieForm,
 } from '../../components';
-import { RootState } from '../../redux/store';
 import {
+  getMovies,
+  getSearchType,
+  getFieldValue,
+  getMoviesSortFilter,
+  getIsLoading,
   setSearchType,
   setFieldValue,
   setMoviesSortFilter,
   fetchMovies,
-  SearchType,
-  Filters,
-} from '../../redux/moviesSlice';
+} from '../../redux';
+import {
+  Filters, Movies, MoviesReducer, SearchType,
+} from '../../redux/moviesReducer';
 
 import style from '../styles.module.scss';
 
-export const FindMovie: React.FC = () => {
+interface Props {
+  searchType: SearchType,
+  fieldValue: string,
+  moviesSortFilter: Filters,
+  isLoading: boolean,
+  movies: Movies,
+}
+const FindMovie: React.FC<Props> = (props) => {
   const dispatch = useDispatch();
   const {
-    searchData, movies, moviesSortFilter, isLoading,
-  } = useSelector((state: RootState) => state.movies);
-
+    searchType, fieldValue, movies, moviesSortFilter, isLoading,
+  } = props;
   const onFieldChange = (value: string) => dispatch(setFieldValue(value));
   const onSelectType = (value: SearchType) => dispatch(setSearchType(value));
   const onSetMoviesSortFilter = (filter: Filters) => dispatch(setMoviesSortFilter(filter));
-  const onSearch = () => dispatch(fetchMovies(searchData.fieldValue, searchData.searchType));
+  const onSearch = () => dispatch(fetchMovies(fieldValue, searchType));
 
   return (
     <div>
@@ -34,9 +45,9 @@ export const FindMovie: React.FC = () => {
           <Logo />
         </Header>
         <SearchMovieForm
-          fieldValue={searchData.fieldValue}
+          fieldValue={fieldValue}
           onFieldChange={onFieldChange}
-          searchType={searchData.searchType}
+          searchType={searchType}
           onSelectType={onSelectType}
           onSearch={onSearch}
         />
@@ -56,3 +67,13 @@ export const FindMovie: React.FC = () => {
     </div>
   );
 };
+
+const mapStateToProps = (state: MoviesReducer) => ({
+  searchType: getSearchType(state),
+  fieldValue: getFieldValue(state),
+  movies: getMovies(state),
+  moviesSortFilter: getMoviesSortFilter(state),
+  isLoading: getIsLoading(state),
+});
+
+export const FindMovieContainer = connect(mapStateToProps, null)(FindMovie);

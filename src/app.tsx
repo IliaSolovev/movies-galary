@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import { FindMovie, FoundMovie, ErrorPage } from './Pages';
-import { store } from './redux/store';
+import { FindMovieContainer, FoundMovieContainer, ErrorPage } from './Pages';
+import { store } from './redux';
 import { CatchError } from './components';
 
 
@@ -16,10 +16,10 @@ const App: React.FC = (props) => (
       <Router>
         <Switch>
           <Route path="/" exact>
-            <FindMovie />
+            <FindMovieContainer />
           </Route>
           <Route path="/movie/:movieId">
-            <FoundMovie />
+            <FoundMovieContainer />
           </Route>
           <Route>
             <ErrorPage errorMessage="page not found" statusCode={404} />

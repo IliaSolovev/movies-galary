@@ -1,18 +1,25 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 
 import {
   Header, Logo, MoviesList, Footer, MovieDescription, MovieListGenre, CatchError, Button,
 } from '../../components';
-import { RootState } from '../../redux/store';
-import { fetchMovie } from '../../redux/moviesSlice';
+import {
+  fetchMovie, getIsLoading, getMovies, getSelectedMovie, MoviesReducer,
+  Movie, Movies,
+} from '../../redux';
 
-import bgStyle from '../styles.module.scss';
+import style from '../styles.module.scss';
 
-export const FoundMovie: React.FC = () => {
+interface Props {
+  isLoading: boolean,
+  selectedMovie: Movie | null,
+  movies: Movies,
+}
+
+const FoundMovie: React.FC<Props> = ({ isLoading, selectedMovie, movies }) => {
   const dispatch = useDispatch();
-  const { isLoading, selectedMovie, movies } = useSelector((state: RootState) => state.movies);
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -23,7 +30,7 @@ export const FoundMovie: React.FC = () => {
     <div>
       {isLoading ? <p>Loading ...</p> : (
         <>
-          <div className={bgStyle.layout}>
+          <div className={style.layout}>
             <Header>
               <Logo />
               <Link to="/">
@@ -42,3 +49,11 @@ export const FoundMovie: React.FC = () => {
     </div>
   );
 };
+
+const mapStateToProps = (state: MoviesReducer) => ({
+  isLoading: getIsLoading(state),
+  selectedMovie: getSelectedMovie(state),
+  movies: getMovies(state),
+});
+
+export const FoundMovieContainer = connect(mapStateToProps, {})(FoundMovie);

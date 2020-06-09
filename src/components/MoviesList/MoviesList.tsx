@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { MovieCard } from './MovieCard/MovieCard';
 import { SortFunctions } from '../../services/SortMoviesList';
 import { FilmsNotFound } from '..';
-import { Filters, Movie } from '../../redux/moviesSlice';
+import { Movie } from '../../redux';
+import { Filters } from '../../redux/moviesReducer';
 
 import style from './moviesList.module.scss';
 

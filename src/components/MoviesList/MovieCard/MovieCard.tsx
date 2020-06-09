@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { Movie } from '../../../redux/moviesSlice';
+import { Movie } from '../../../redux';
 
 import style from './movieCard.module.scss';
+
 
 interface Props {
     movie: Movie
