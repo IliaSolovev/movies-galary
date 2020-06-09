@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { MovieSortFilter } from '../MovieSortFilter';
-import FilterButton from '../FilterButton/FilterButton';
+import { Button } from '../..';
 
 const data = {
   id: 337167,
@@ -30,6 +30,6 @@ it('should render sort filter', () => {
   expect(toJson(component)).toMatchSnapshot();
 });
 it('should render sort button', () => {
-  const component = shallow(<FilterButton text="asd" isActive onClick={() => {}} />);
+  const component = shallow(<Button type="sortFilter" active onClick={() => {}}>sort</Button>);
   expect(toJson(component)).toMatchSnapshot();
 });

@@ -60,10 +60,10 @@ exports[`should render search movie filter  1`] = `
 
 exports[`should render search movie filter button 1`] = `
 <button
-  className="undefined  undefined"
+  className="button button__search undefined"
   onClick={[Function]}
 >
-  asd
+  search
 </button>
 `;
 

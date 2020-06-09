@@ -2,10 +2,10 @@
 
 exports[`should render sort button 1`] = `
 <button
-  className="button button_active"
+  className="button button__sortFilter button__sortFilter_active"
   onClick={[Function]}
 >
-  asd
+  sort
 </button>
 `;
 
