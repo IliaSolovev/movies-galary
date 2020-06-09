@@ -14,7 +14,7 @@ export const Button: React.FC<Props> = ({
   children, onClick, type, active,
 }) => (
   <button
-    className={`${style.button} ${style[`button__${type}`]} ${active ? style[`button__${type}_active`] : ''}`}
+    className={`${style.button} ${style[`button_${type}`]} ${active ? style[`button_${type}-active`] : ''}`}
     onClick={onClick}
   >
     {children}

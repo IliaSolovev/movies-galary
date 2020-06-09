@@ -88,17 +88,12 @@ export const {
 
 export const fetchMovies = (fieldValue: string, searchType: SearchType): MovieThunk => async (dispatch): Promise<void> => {
   dispatch(setFieldValue(''));
-  let params;
-  if (searchType === 'genre') {
-    params = `search=${fieldValue}&searchBy=${searchType}s`;
-  } else {
-    params = `search=${fieldValue}&searchBy=${searchType}`;
-  }
+  const params = `search=${fieldValue}&searchBy=${searchType}${searchType === 'genre' ? 's' : ''}`;
   const movies = await movieApi.fetchMovies(params);
 
   dispatch(addMovies(movies));
 };
-export const fetchMovie = (movieId: null): MovieThunk => async (dispatch): Promise<void> => {
+export const fetchMovie = (movieId: number): MovieThunk => async (dispatch): Promise<void> => {
   dispatch(setIsLoading(true));
   movieApi.fetchMovie(movieId).then((movie: Movie) => {
     dispatch(selectMovie(movie));

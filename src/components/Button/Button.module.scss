@@ -15,7 +15,7 @@
     opacity: .8;
   }
 
-  &__search {
+  &_search {
     width: 170px;
     height: 30px;
     margin-left: 10px;
@@ -23,7 +23,7 @@
     background: $redColor;
   }
 
-  &__whiteSearch {
+  &_whiteSearch {
     width: 100px;
     height: 30px;
     margin-left: 10px;
@@ -32,23 +32,23 @@
     color: $redColor;
   }
 
-  &__searchFilter {
+  &_searchFilter {
     padding: 2px 15px;
     border-radius: 2px;
     background: #676767;
 
-    &_active {
+    &-active {
       background: $redColor;
     }
   }
 
-  &__sortFilter {
+  &_sortFilter {
     background: none;
     color: #2a2a2a;
     text-transform: lowercase;
     font-size: 1em;
 
-    &_active {
+    &-active {
       color: $redColor
     }
   }

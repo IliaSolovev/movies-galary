@@ -23,7 +23,7 @@ export const SearchMovieFilters: React.FC<Props> = ({ searchType, onSelectType }
   return (
     <div className={style.searchMovieFilters}>
       <div className={style.searchMovieFilters__searchBy}>search by</div>
-      <div className={style.searchMovieFilters__buttons}>
+      <div className={style.searchMovieFilters__actions}>
         {buttons}
       </div>
     </div>

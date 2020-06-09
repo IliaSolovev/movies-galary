@@ -14,7 +14,7 @@ import {
   Filters,
 } from '../../redux/moviesSlice';
 
-import bgStyle from '../bgStyles.module.scss';
+import style from '../styles.module.scss';
 
 export const FindMovie: React.FC = () => {
   const dispatch = useDispatch();
@@ -25,11 +25,11 @@ export const FindMovie: React.FC = () => {
   const onFieldChange = (value: string) => dispatch(setFieldValue(value));
   const onSelectType = (value: SearchType) => dispatch(setSearchType(value));
   const onSetMoviesSortFilter = (filter: Filters) => dispatch(setMoviesSortFilter(filter));
-  const search = () => dispatch(fetchMovies(searchData.fieldValue, searchData.searchType));
+  const onSearch = () => dispatch(fetchMovies(searchData.fieldValue, searchData.searchType));
 
   return (
     <div>
-      <div className={bgStyle.bgContainer}>
+      <div className={style.layout}>
         <Header>
           <Logo />
         </Header>
@@ -38,7 +38,7 @@ export const FindMovie: React.FC = () => {
           onFieldChange={onFieldChange}
           searchType={searchData.searchType}
           onSelectType={onSelectType}
-          search={search}
+          onSearch={onSearch}
         />
       </div>
       {isLoading ? <p>loading</p>

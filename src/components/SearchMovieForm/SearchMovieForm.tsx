@@ -9,14 +9,14 @@ import style from './searchMovieForm.module.scss';
 
 interface Props {
     fieldValue: string,
-    onFieldChange: (value: string) => void
+    onFieldChange: (value: string) => void,
     searchType: string,
-    onSelectType: (value: SearchType) => void
-    search: () => void
+    onSelectType: (value: SearchType) => void,
+    onSearch: () => void
 }
 
 export const SearchMovieForm: React.FC<Props> = ({
-  fieldValue, onFieldChange, searchType, onSelectType, search,
+  fieldValue, onFieldChange, searchType, onSelectType, onSearch,
 }) => (
   <div className={style.searchMovie}>
     <div className={style.searchMovie__title}>find your movie</div>
@@ -25,7 +25,7 @@ export const SearchMovieForm: React.FC<Props> = ({
     </div>
     <div className={style.searchMovie__buttons}>
       <SearchMovieFilters searchType={searchType} onSelectType={onSelectType} />
-      <Button onClick={search} type="search">search</Button>
+      <Button onClick={onSearch} type="search">search</Button>
     </div>
   </div>
 );

@@ -8,7 +8,7 @@ import {
 import { RootState } from '../../redux/store';
 import { fetchMovie } from '../../redux/moviesSlice';
 
-import bgStyle from '../bgStyles.module.scss';
+import bgStyle from '../styles.module.scss';
 
 export const FoundMovie: React.FC = () => {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ export const FoundMovie: React.FC = () => {
     <div>
       {isLoading ? <p>Loading ...</p> : (
         <>
-          <div className={bgStyle.bgContainer}>
+          <div className={bgStyle.layout}>
             <Header>
               <Logo />
               <Link to="/">

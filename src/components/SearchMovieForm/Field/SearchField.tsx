@@ -9,6 +9,11 @@ interface Props {
 
 export const SearchField:React.FC<Props> = ({ value, onChange }) => (
   <>
-    <input type="text" className={style.searchField} value={value} onChange={(e:ChangeEvent<HTMLInputElement>) => onChange(e.target.value)} />
+    <input
+      type="text"
+      className={style.searchField}
+      value={value}
+      onChange={({ currentTarget }:ChangeEvent<HTMLInputElement>) => onChange(currentTarget.value)}
+    />
   </>
 );
