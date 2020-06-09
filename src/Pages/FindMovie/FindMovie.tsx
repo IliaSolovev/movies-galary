@@ -1,12 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Header from '../../components/Header/Header';
-import MainTitle from '../../components/MainTitle/MainTitle';
-import MovieSortFilter from '../../components/MovieSortFilter/MovieSortFilter';
-import MoviesList from '../../components/MoviesList/MoviesList';
-import Footer from '../../components/Footer/Footer';
-import SearchMovieForm from '../../components/SearchMovieForm/SearchMovieForm';
-import bgS from '../bgStyles.module.scss';
+
+import {
+  Header, Logo, MovieSortFilter, MoviesList, Footer, SearchMovieForm,
+} from '../../components';
 import { RootState } from '../../redux/store';
 import {
   setSearchType,
@@ -17,51 +14,45 @@ import {
   Filters,
 } from '../../redux/moviesSlice';
 
-interface Props {
+import style from '../styles.module.scss';
 
-}
-
-const FindMovie: React.FC<Props> = (props) => {
+export const FindMovie: React.FC = () => {
   const dispatch = useDispatch();
   const {
     searchData, movies, moviesSortFilter, isLoading,
   } = useSelector((state: RootState) => state.movies);
 
-  const onFieldChange = (v: string) => dispatch(setFieldValue(v));
-  const onSelectType = (v: SearchType) => dispatch(setSearchType(v));
-  const onSetMoviesSortFilter = (f: Filters) => dispatch(setMoviesSortFilter(f));
-  const search = () => dispatch(fetchMovies(searchData.fieldValue, searchData.searchType));
+  const onFieldChange = (value: string) => dispatch(setFieldValue(value));
+  const onSelectType = (value: SearchType) => dispatch(setSearchType(value));
+  const onSetMoviesSortFilter = (filter: Filters) => dispatch(setMoviesSortFilter(filter));
+  const onSearch = () => dispatch(fetchMovies(searchData.fieldValue, searchData.searchType));
 
   return (
     <div>
-      <div className={bgS.bgContainer}>
+      <div className={style.layout}>
         <Header>
-          <MainTitle />
+          <Logo />
         </Header>
         <SearchMovieForm
           fieldValue={searchData.fieldValue}
           onFieldChange={onFieldChange}
           searchType={searchData.searchType}
           onSelectType={onSelectType}
-          search={search}
+          onSearch={onSearch}
         />
       </div>
-      {isLoading && <p>loading</p>}
-      {!isLoading
-            && (
-            <>
-              <MovieSortFilter
-                movieCount={movies.data.length}
-                onSetMoviesSortFilter={onSetMoviesSortFilter}
-                currentFilter={moviesSortFilter}
-              />
-              <MoviesList movies={movies.data} sortFilter={moviesSortFilter} />
-            </>
-            )}
-
+      {isLoading ? <p>loading</p>
+        : (
+          <>
+            <MovieSortFilter
+              movieCount={movies.data.length}
+              onSetMoviesSortFilter={onSetMoviesSortFilter}
+              currentFilter={moviesSortFilter}
+            />
+            <MoviesList movies={movies.data} sortFilter={moviesSortFilter} />
+          </>
+        )}
       <Footer />
     </div>
   );
 };
-
-export default FindMovie;

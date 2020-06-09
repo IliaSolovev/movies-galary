@@ -2,45 +2,50 @@
 
 exports[`should render sort button 1`] = `
 <button
-  className="button button_active"
+  className="button button__sortFilter button__sortFilter_active"
   onClick={[Function]}
 >
-  asd
+  sort
 </button>
 `;
 
 exports[`should render sort filter 1`] = `
 <div
-  className="container"
+  className="movieSortFilter"
 >
   <div>
     <div
-      className="movieCounter"
+      className="movieSortFilter__counter"
     >
       6
-       movies found
+       
+      movies found
     </div>
     <div
-      className="filters"
+      className="movieSortFilter__filters"
     >
       <div>
         Sort by
       </div>
       <div
-        className="filter__buttons"
+        className="movieSortFilter__filterButton"
       >
-        <FilterButton
-          isActive={false}
+        <Component
+          active={false}
           key="0"
           onClick={[Function]}
-          text="release date"
-        />
-        <FilterButton
-          isActive={true}
+          type="sortFilter"
+        >
+          release date
+        </Component>
+        <Component
+          active={true}
           key="1"
           onClick={[Function]}
-          text="rating"
-        />
+          type="sortFilter"
+        >
+          rating
+        </Component>
       </div>
     </div>
   </div>

@@ -1,18 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render search button 1`] = `
-<button
-  className="button"
-  onClick={[Function]}
->
-  search
-</button>
-`;
-
 exports[`should render search field 1`] = `
 <Fragment>
   <input
-    className="input"
+    className="searchField"
     onChange={[Function]}
     type="text"
     value="asd"
@@ -21,7 +12,7 @@ exports[`should render search field 1`] = `
 `;
 
 exports[`should render search movie filter  1`] = `
-<SearchMovieFilters
+<Component
   onSelectType={[Function]}
   searchType="genre"
 >
@@ -29,55 +20,55 @@ exports[`should render search movie filter  1`] = `
     className="searchMovieFilters"
   >
     <div
-      className="searchBy"
+      className="searchMovieFilters__searchBy"
     >
       search by
     </div>
     <div
-      className="buttons"
+      className="searchMovieFilters__buttons"
     >
-      <SearchMovieFiltersButton
-        isActive={false}
+      <Component
+        active={false}
         key="0"
         onClick={[Function]}
-        text="title"
+        type="searchFilter"
       >
         <button
-          className="button  "
+          className="button button__searchFilter "
           onClick={[Function]}
         >
           title
         </button>
-      </SearchMovieFiltersButton>
-      <SearchMovieFiltersButton
-        isActive={true}
+      </Component>
+      <Component
+        active={true}
         key="1"
         onClick={[Function]}
-        text="genre"
+        type="searchFilter"
       >
         <button
-          className="button  button_active"
+          className="button button__searchFilter button__searchFilter_active"
           onClick={[Function]}
         >
           genre
         </button>
-      </SearchMovieFiltersButton>
+      </Component>
     </div>
   </div>
-</SearchMovieFilters>
+</Component>
 `;
 
 exports[`should render search movie filter button 1`] = `
 <button
-  className="button  button_active"
+  className="button button__search undefined"
   onClick={[Function]}
 >
-  asd
+  search
 </button>
 `;
 
 exports[`should render search movie form  1`] = `
-<SearchMovieForm
+<Component
   fieldValue="asd"
   onFieldChange={[Function]}
   onSelectType={[Function]}
@@ -93,22 +84,22 @@ exports[`should render search movie form  1`] = `
       find your movie
     </div>
     <div>
-      <SearchField
+      <Component
         onChange={[Function]}
         value="asd"
       >
         <input
-          className="input"
+          className="searchField"
           onChange={[Function]}
           type="text"
           value="asd"
         />
-      </SearchField>
+      </Component>
     </div>
     <div
       className="searchMovie__buttons"
     >
-      <SearchMovieFilters
+      <Component
         onSelectType={[Function]}
         searchType="title"
       >
@@ -116,53 +107,54 @@ exports[`should render search movie form  1`] = `
           className="searchMovieFilters"
         >
           <div
-            className="searchBy"
+            className="searchMovieFilters__searchBy"
           >
             search by
           </div>
           <div
-            className="buttons"
+            className="searchMovieFilters__buttons"
           >
-            <SearchMovieFiltersButton
-              isActive={true}
+            <Component
+              active={true}
               key="0"
               onClick={[Function]}
-              text="title"
+              type="searchFilter"
             >
               <button
-                className="button  button_active"
+                className="button button__searchFilter button__searchFilter_active"
                 onClick={[Function]}
               >
                 title
               </button>
-            </SearchMovieFiltersButton>
-            <SearchMovieFiltersButton
-              isActive={false}
+            </Component>
+            <Component
+              active={false}
               key="1"
               onClick={[Function]}
-              text="genre"
+              type="searchFilter"
             >
               <button
-                className="button  "
+                className="button button__searchFilter "
                 onClick={[Function]}
               >
                 genre
               </button>
-            </SearchMovieFiltersButton>
+            </Component>
           </div>
         </div>
-      </SearchMovieFilters>
-      <SearchButton
+      </Component>
+      <Component
         onClick={[Function]}
+        type="search"
       >
         <button
-          className="button"
+          className="button button__search "
           onClick={[Function]}
         >
           search
         </button>
-      </SearchButton>
+      </Component>
     </div>
   </div>
-</SearchMovieForm>
+</Component>
 `;

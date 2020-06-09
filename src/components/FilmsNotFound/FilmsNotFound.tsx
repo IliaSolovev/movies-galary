@@ -1,14 +1,9 @@
 import React from 'react';
-import s from './filmsNotFound.module.scss';
 
-interface Props {
+import style from './filmsNotFound.module.scss';
 
-}
-
-const FilmsNotFound: React.FC<Props> = (props) => (
-  <h2 className={s.title}>
+export const FilmsNotFound: React.FC = () => (
+  <h2 className={style.title}>
     Films Not Found
   </h2>
 );
-
-export default FilmsNotFound;

@@ -1,33 +1,31 @@
 import React from 'react';
-import './styles/main.scss';
-import 'normalize.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import FindMovie from './Pages/FindMovie/FindMovie';
-import FoundMovie from './Pages/FoundMovie/FoundMovie';
-import CatchError from './components/CatchError/CatchError';
-import store, { persistor } from './redux/store';
-import PageNotFound from './Pages/404/PageNotFound';
+
+import { FindMovie, FoundMovie, ErrorPage } from './Pages';
+import { store } from './redux/store';
+import { CatchError } from './components';
+
+
+import './styles/main.scss';
+import 'normalize.css';
 
 const App: React.FC = (props) => (
   <CatchError>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <Router>
-          <Switch>
-            <Route path="/" exact>
-              <FindMovie />
-            </Route>
-            <Route path="/movie/:movieId">
-              <FoundMovie />
-            </Route>
-            <Route path="/*">
-              <PageNotFound />
-            </Route>
-          </Switch>
-        </Router>
-      </PersistGate>
+      <Router>
+        <Switch>
+          <Route path="/" exact>
+            <FindMovie />
+          </Route>
+          <Route path="/movie/:movieId">
+            <FoundMovie />
+          </Route>
+          <Route>
+            <ErrorPage errorMessage="page not found" statusCode={404} />
+          </Route>
+        </Switch>
+      </Router>
     </Provider>
   </CatchError>
 );

@@ -1,8 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import WhiteSearchButton from '../WhiteSearchButton/WhiteSearchButton';
-import MovieDescription from '../MovieDescription';
+import { MovieDescription } from '../MovieDescription';
 
 const data = {
   id: 337167,
@@ -12,7 +11,9 @@ const data = {
   vote_count: 1195,
   release_date: '2018-02-07',
   poster_path: 'https://image.tmdb.org/t/p/w500/3kcEGnYBHDeqmdYf8ZRbKdfmlUy.jpg',
-  overview: 'Believing they have left behind shadowy figures from their past, newlyweds Christian and Ana fully embrace an inextricable connection and shared life of luxury. But just as she steps into her role as Mrs. Grey and he relaxes into an unfamiliar stability, new threats could jeopardize their happy ending before it even begins.',
+  overview: 'Believing they have left behind shadowy figures from their past, newlyweds Christian and Ana fully embrace an inextricable '
+      + 'connection and shared life of luxury. But just as she steps into her role as Mrs. Grey and he relaxes into an unfamiliar stability, '
+      + 'new threats could jeopardize their happy ending before it even begins.',
   budget: 55000000,
   revenue: 136906000,
   genres: [
@@ -22,11 +23,8 @@ const data = {
   runtime: 106,
 };
 
-it('should render white search button', () => {
-  const component = shallow(<WhiteSearchButton />);
-  expect(toJson(component)).toMatchSnapshot();
-});
+
 it('should render movie description', () => {
-  const component = shallow(<MovieDescription data={data} />);
+  const component = shallow(<MovieDescription movie={data} />);
   expect(toJson(component)).toMatchSnapshot();
 });

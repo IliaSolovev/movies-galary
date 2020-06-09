@@ -1,32 +1,31 @@
 import React from 'react';
-import SearchField from './Field/SearchField';
-import SearchMovieFilters from './SearchMovieFilters/SearchMovieFilters';
-import SearchButton from './SearchButton/SearchButton';
-import s from './searchMovieForm.module.scss';
+
+import { SearchField } from './Field/SearchField';
+import { SearchMovieFilters } from './SearchMovieFilters/SearchMovieFilters';
 import { SearchType } from '../../redux/moviesSlice';
+import { Button } from '..';
+
+import style from './searchMovieForm.module.scss';
 
 interface Props {
     fieldValue: string,
-    onFieldChange: (value: string) => void
+    onFieldChange: (value: string) => void,
     searchType: string,
-    onSelectType: (value: SearchType) => void
-    search: () => void
+    onSelectType: (value: SearchType) => void,
+    onSearch: () => void
 }
 
-const SearchMovieForm: React.FC<Props> = ({
-  fieldValue, onFieldChange, searchType, onSelectType, search,
+export const SearchMovieForm: React.FC<Props> = ({
+  fieldValue, onFieldChange, searchType, onSelectType, onSearch,
 }) => (
-  <div className={s.searchMovie}>
-    <div className={s.searchMovie__title}>find your movie</div>
-
+  <div className={style.searchMovie}>
+    <div className={style.searchMovie__title}>find your movie</div>
     <div>
       <SearchField value={fieldValue} onChange={onFieldChange} />
     </div>
-    <div className={s.searchMovie__buttons}>
+    <div className={style.searchMovie__buttons}>
       <SearchMovieFilters searchType={searchType} onSelectType={onSelectType} />
-      <SearchButton onClick={search} />
+      <Button onClick={onSearch} type="search">search</Button>
     </div>
   </div>
 );
-
-export default SearchMovieForm;

@@ -1,29 +1,31 @@
 import React from 'react';
-import SearchMovieFiltersButton from './SearchMovieFiltersButton/SearchMovieFiltersButton';
-import s from './searchMovieFilters.module.scss';
+
+import { Button } from '../../Button/Button';
+
+import style from './searchMovieFilters.module.scss';
 
 interface Props {
     searchType:string,
     onSelectType: (value: string) => void
 }
 
-const SearchMovieFilters: React.FC<Props> = ({ searchType, onSelectType }) => {
+export const SearchMovieFilters: React.FC<Props> = ({ searchType, onSelectType }) => {
   const buttons = ['title', 'genre'].map((type, id) => (
-    <SearchMovieFiltersButton
-      text={type}
+    <Button
       key={id}
-      isActive={searchType === type}
-      onClick={onSelectType}
-    />
+      active={searchType === type}
+      onClick={() => onSelectType(type)}
+      type="searchFilter"
+    >
+      {type}
+    </Button>
   ));
   return (
-    <div className={s.searchMovieFilters}>
-      <div className={s.searchBy}>search by</div>
-      <div className={s.buttons}>
+    <div className={style.searchMovieFilters}>
+      <div className={style.searchMovieFilters__searchBy}>search by</div>
+      <div className={style.searchMovieFilters__actions}>
         {buttons}
       </div>
     </div>
   );
 };
-
-export default SearchMovieFilters;

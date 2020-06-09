@@ -1,15 +1,11 @@
 import React from 'react';
-import s from './footer.module.scss';
-import MainTitle from '../MainTitle/MainTitle';
 
-interface Props {
+import { Logo } from '..';
 
-}
+import style from './footer.module.scss';
 
-const Footer = (props: Props) => (
-  <footer className={s.footer}>
-    <MainTitle />
+export const Footer: React.FC = () => (
+  <footer className={style.footer}>
+    <Logo />
   </footer>
 );
-
-export default Footer;

@@ -39,7 +39,7 @@ module.exports = {
               modules: {
                 mode: 'local',
                 exportGlobals: true,
-                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                localIdentName: '[path]--[hash:base64:5]',
                 context: path.resolve(__dirname, 'src'),
                 hashPrefix: 'my-custom-hash',
               },

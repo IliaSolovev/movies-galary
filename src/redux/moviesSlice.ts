@@ -1,21 +1,21 @@
 import {
   Action, createSlice, PayloadAction, ThunkAction,
-} from "@reduxjs/toolkit";
-import { movieApi } from "../services/Api";
+} from '@reduxjs/toolkit';
+import { movieApi } from '../services/Api';
 
 export interface Movie {
-    "id": number,
-    "title": string,
-    "tagline": string,
-    "vote_average": number,
-    "vote_count": number,
-    "release_date": string,
-    "poster_path": string,
-    "overview": string,
-    "budget": number,
-    "revenue": number,
-    "runtime": number,
-    "genres": string[]
+    'id': number,
+    'title': string,
+    'tagline': string,
+    'vote_average': number,
+    'vote_count': number,
+    'release_date': string,
+    'poster_path': string,
+    'overview': string,
+    'budget': number,
+    'revenue': number,
+    'runtime': number,
+    'genres': string[]
 }
 
 export interface Movies {
@@ -25,8 +25,8 @@ export interface Movies {
     limit: number,
 }
 
-export type Filters = "rating" | "release date";
-export type SearchType = "genre" | "title";
+export type Filters = 'rating' | 'release date';
+export type SearchType = 'genre' | 'title';
 
 export interface State {
     movies: Movies,
@@ -47,16 +47,16 @@ export const initialState: State = {
     limit: 0,
   },
   selectedMovie: null,
-  moviesSortFilter: "rating",
+  moviesSortFilter: 'rating',
   searchData: {
-    searchType: "genre",
-    fieldValue: "",
+    searchType: 'genre',
+    fieldValue: '',
   },
   isLoading: false,
 };
 
 const moviesSlice = createSlice({
-  name: "movie",
+  name: 'movie',
   initialState,
   reducers: {
     addMovies(state, action: PayloadAction<Movies>) {
@@ -87,16 +87,19 @@ export const {
 } = moviesSlice.actions;
 
 export const fetchMovies = (fieldValue: string, searchType: SearchType): MovieThunk => async (dispatch): Promise<void> => {
-  dispatch(setFieldValue(""));
-  let params;
-  if (searchType === "genre") {
-    params = `search=${fieldValue}&searchBy=${searchType}s`;
-  } else {
-    params = `search=${fieldValue}&searchBy=${searchType}`;
-  }
+  dispatch(setFieldValue(''));
+  const params = `search=${fieldValue}&searchBy=${searchType}${searchType === 'genre' ? 's' : ''}`;
   const movies = await movieApi.fetchMovies(params);
 
   dispatch(addMovies(movies));
+};
+export const fetchMovie = (movieId: number): MovieThunk => async (dispatch): Promise<void> => {
+  dispatch(setIsLoading(true));
+  movieApi.fetchMovie(movieId).then((movie: Movie) => {
+    dispatch(selectMovie(movie));
+    dispatch(fetchMovies(movie.genres[0], 'genre'));
+    dispatch(setIsLoading(false));
+  });
 };
 
 
