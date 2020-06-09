@@ -2,9 +2,9 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { SearchField } from '../Field/SearchField';
-import { SearchMovieFiltersButton } from '../SearchMovieFilters/SearchMovieFiltersButton/SearchMovieFiltersButton';
 import { SearchMovieFilters } from '../SearchMovieFilters/SearchMovieFilters';
 import { SearchMovieForm } from '../SearchMovieForm';
+import { Button } from '../..';
 
 const data = {
   id: 337167,
@@ -33,7 +33,7 @@ it('should render search field', () => {
 });
 
 it('should render search movie filter button', () => {
-  const component = shallow(<SearchMovieFiltersButton onClick={() => {}} isActive text="asd" />);
+  const component = shallow(<Button onClick={() => {}} active type="search">search</Button>);
   expect(toJson(component)).toMatchSnapshot();
 });
 it('should render search movie filter ', () => {
