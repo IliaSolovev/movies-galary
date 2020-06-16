@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Movie } from '../../redux/moviesSlice';
 
-import style from './movieDescription.module.scss';
+import style from './MovieDescription.module.scss';
 
 interface Props {
     movie: Movie

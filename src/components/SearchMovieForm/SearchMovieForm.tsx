@@ -5,7 +5,7 @@ import { SearchMovieFilters } from './SearchMovieFilters/SearchMovieFilters';
 import { SearchType } from '../../redux/moviesSlice';
 import { Button } from '..';
 
-import style from './searchMovieForm.module.scss';
+import style from './SearchMovieForm.module.scss';
 
 interface Props {
     fieldValue: string,

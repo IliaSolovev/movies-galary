@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import { MovieListGenre } from '../MovieListGenre';
+import { MovieListGenre } from './MovieListGenre';
 
 const data = {
   id: 337167,

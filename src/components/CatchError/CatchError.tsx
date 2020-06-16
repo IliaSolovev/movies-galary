@@ -27,4 +27,3 @@ export class CatchError extends React.Component<{}, State> {
     );
   }
 }
-

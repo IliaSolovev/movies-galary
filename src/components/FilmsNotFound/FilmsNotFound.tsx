@@ -1,6 +1,6 @@
 import React from 'react';
 
-import style from './filmsNotFound.module.scss';
+import style from './FilmsNotFound.module.scss';
 
 export const FilmsNotFound: React.FC = () => (
   <h2 className={style.title}>

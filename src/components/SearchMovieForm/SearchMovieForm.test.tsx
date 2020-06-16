@@ -1,10 +1,10 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import { SearchField } from '../Field/SearchField';
-import { SearchMovieFilters } from '../SearchMovieFilters/SearchMovieFilters';
-import { SearchMovieForm } from '../SearchMovieForm';
-import { Button } from '../..';
+import { SearchField } from './Field/SearchField';
+import { SearchMovieFilters } from './SearchMovieFilters/SearchMovieFilters';
+import { SearchMovieForm } from './SearchMovieForm';
+import { Button } from '../index';
 
 const data = {
   id: 337167,

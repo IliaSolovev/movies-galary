@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import { Footer } from '../Footer';
+import { CatchError } from './CatchError';
 
-it('should render footer', () => {
-  const component = shallow(<Footer />);
+it('should render error', () => {
+  const component = shallow(<CatchError />);
   expect(toJson(component)).toMatchSnapshot();
 });

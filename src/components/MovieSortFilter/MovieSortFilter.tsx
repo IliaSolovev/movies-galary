@@ -3,7 +3,7 @@ import React from 'react';
 import { Filters } from '../../redux/moviesSlice';
 import { Button } from '..';
 
-import style from './movieSortFilter.module.scss';
+import style from './MovieSortFilter.module.scss';
 
 interface Props {
     movieCount: number,

@@ -6,7 +6,7 @@ import { SortFunctions } from '../../services/SortMoviesList';
 import { FilmsNotFound } from '..';
 import { Filters, Movie } from '../../redux/moviesSlice';
 
-import style from './moviesList.module.scss';
+import style from './MoviesList.module.scss';
 
 
 interface Props {

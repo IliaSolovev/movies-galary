@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import { FilmsNotFound } from '../FilmsNotFound';
+import { Button } from './Button';
 
-it('should render films not found', () => {
-  const component = shallow(<FilmsNotFound />);
+it('should render error', () => {
+  const component = shallow(<Button type="sortFilter">search</Button>);
   expect(toJson(component)).toMatchSnapshot();
 });

@@ -1,10 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
+import { Footer } from './Footer';
 
-import { Logo } from '../Logo';
-
-it('should render main title', () => {
-  const component = shallow(<Logo />);
+it('should render footer', () => {
+  const component = shallow(<Footer />);
   expect(toJson(component)).toMatchSnapshot();
 });
