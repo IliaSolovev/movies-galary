@@ -27,7 +27,7 @@ export const MovieDescription: React.FC<Props> = ({ movie }) => (
               <div className={style.description__release}>{movie?.release_date.split('-')[0]}</div>
               <div className={style.description__duration}>
                 {movie?.runtime}
-                {' '}
+                &nbsp;
                 min
               </div>
             </div>
