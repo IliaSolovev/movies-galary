@@ -1,12 +1,12 @@
 import { createSelector } from 'reselect';
-import { MoviesReducer } from './moviesReducer';
+import { RootState } from './store';
 
-const movies = (state: MoviesReducer) => state.get('movies');
-const selectedMovie = (state: MoviesReducer) => state.get('selectedMovie');
-const searchType = (state: MoviesReducer) => state.get('searchType');
-const fieldValue = (state: MoviesReducer) => state.get('fieldValue');
-const moviesSortFilter = (state: MoviesReducer) => state.get('moviesSortFilter');
-const isLoading = (state: MoviesReducer) => state.get('isLoading');
+const movies = (state: RootState) => state.movies.get('movies');
+const selectedMovie = (state: RootState) => state.movies.get('selectedMovie');
+const searchType = (state: RootState) => state.movies.get('searchType');
+const fieldValue = (state: RootState) => state.movies.get('fieldValue');
+const moviesSortFilter = (state: RootState) => state.movies.get('moviesSortFilter');
+const isLoading = (state: RootState) => state.movies.get('isLoading');
 
 export const getMovies = createSelector(
   movies,

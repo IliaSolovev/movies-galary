@@ -20,6 +20,7 @@ import {
 } from '../../redux/moviesReducer';
 
 import style from '../styles.module.scss';
+import {RootState} from "../../redux/store";
 
 interface Props {
   searchType: SearchType,
@@ -68,7 +69,7 @@ const FindMovie: React.FC<Props> = (props) => {
   );
 };
 
-const mapStateToProps = (state: MoviesReducer) => ({
+const mapStateToProps = (state: RootState) => ({
   searchType: getSearchType(state),
   fieldValue: getFieldValue(state),
   movies: getMovies(state),

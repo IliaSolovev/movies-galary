@@ -3,14 +3,21 @@ import { Link, useParams } from 'react-router-dom';
 import { connect, useDispatch } from 'react-redux';
 
 import {
-  Header, Logo, MoviesList, Footer, MovieDescription, MovieListGenre, CatchError, Button,
+  Button,
+  CatchError,
+  Footer,
+  Header,
+  Logo,
+  MovieDescription,
+  MovieListGenre,
+  MoviesList,
 } from '../../components';
 import {
-  fetchMovie, getIsLoading, getMovies, getSelectedMovie, MoviesReducer,
-  Movie, Movies,
+  fetchMovie, getIsLoading, getMovies, getSelectedMovie, Movie, Movies,
 } from '../../redux';
 
 import style from '../styles.module.scss';
+import { RootState } from '../../redux/store';
 
 interface Props {
   isLoading: boolean,
@@ -50,7 +57,7 @@ const FoundMovie: React.FC<Props> = ({ isLoading, selectedMovie, movies }) => {
   );
 };
 
-const mapStateToProps = (state: MoviesReducer) => ({
+const mapStateToProps = (state: RootState) => ({
   isLoading: getIsLoading(state),
   selectedMovie: getSelectedMovie(state),
   movies: getMovies(state),
