@@ -12,7 +12,8 @@
     "lint": "eslint . --ext .tsx",
     "lint-and-fix": "eslint . --ext .tsx --fix",
     "storybook": "start-storybook",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "cypress": "cypress open"
   },
   "keywords": [],
   "author": "",

@@ -1,4 +1,4 @@
-import { Movie, Movies } from "../redux/moviesSlice";
+import { Movie, Movies } from '../redux/moviesSlice';
 
 export const movieApi = {
   fetchMovies: (params: string): Promise<Movies> => fetch(`https://reactjs-cdp.herokuapp.com/movies?${params}`)
