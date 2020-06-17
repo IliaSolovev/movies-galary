@@ -13,12 +13,5 @@ export interface Movie {
   'genres': string[]
 }
 
-export interface Movies {
-  data: Movie[],
-  total: number,
-  offset: number,
-  limit: number,
-}
-
-export type Filters = 'rating' | 'release date';
-export type SearchType = 'genre' | 'title';
+export type SortFilters = 'rating' | 'release date';
+export type SearchType = 'genres' | 'title';

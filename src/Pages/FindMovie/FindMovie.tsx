@@ -1,41 +1,39 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
 
 import { useQuery } from '@apollo/react-hooks';
 import {
-  Header, Logo, MovieSortFilter, MoviesList, Footer, SearchMovieForm,
+  Footer, Header, Logo, MoviesList, MovieSortFilter, SearchMovieForm,
 } from '../../components';
-import { RootState } from '../../redux/store';
-import {
-  setSearchType,
-  setFieldValue,
-  setMoviesSortFilter,
-  fetchMovies,
-  SearchType,
-  Filters,
-} from '../../redux/moviesSlice';
+import { GET_MOVIES } from '../../queries';
+import { SortFilters, Movie, SearchType } from '../../types';
+import { getSortFiltersForQuery } from '../../services';
 
 import style from '../styles.module.scss';
-import { GET_MOVIES } from '../../queries';
 
 export const FindMovie: React.FC = () => {
-  const dispatch = useDispatch();
-  const {
-    searchData, movies, moviesSortFilter, isLoading,
-  } = useSelector((state: RootState) => state.movies);
-
-  const onFieldChange = (value: string) => dispatch(setFieldValue(value));
-  const onSelectType = (value: SearchType) => dispatch(setSearchType(value));
-  const onSetMoviesSortFilter = (filter: Filters) => dispatch(setMoviesSortFilter(filter));
-  const onSearch = () => dispatch(fetchMovies(searchData.fieldValue, searchData.searchType));
-
-  const { loading, error, data } = useQuery(GET_MOVIES, {
-    variables: {
-      filter: moviesSortFilter,
-      searchType: searchData.searchType,
-      searchValue: searchData.fieldValue,
-    },
+  const [fieldValue, setFieldValue] = useState<string>('');
+  const [searchType, setSearchType] = useState<SearchType>('genres');
+  const [sortFilter, setSortFilter] = useState<SortFilters>('rating');
+  const [fetchVariables, setFetchVariables] = useState({
+    searchType,
+    filter: getSortFiltersForQuery(sortFilter),
+    searchValue: fieldValue,
   });
+  const { loading, data } = useQuery<{ movies: Movie[] }>(GET_MOVIES, {
+    variables: { ...fetchVariables },
+  });
+
+  const onSearch = () => {
+    setFetchVariables({
+      searchType,
+      filter: getSortFiltersForQuery(sortFilter),
+      searchValue: fieldValue,
+    });
+  };
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
   return (
     <div>
       <div className={style.layout}>
@@ -43,24 +41,20 @@ export const FindMovie: React.FC = () => {
           <Logo />
         </Header>
         <SearchMovieForm
-          fieldValue={searchData.fieldValue}
-          onFieldChange={onFieldChange}
-          searchType={searchData.searchType}
-          onSelectType={onSelectType}
+          fieldValue={fieldValue}
+          searchType={searchType}
+          onFieldChange={setFieldValue}
+          onSelectType={setSearchType}
           onSearch={onSearch}
         />
       </div>
-      {isLoading ? <p>loading</p>
-        : (
-          <>
-            <MovieSortFilter
-              movieCount={movies.data.length}
-              onSetMoviesSortFilter={onSetMoviesSortFilter}
-              currentFilter={moviesSortFilter}
-            />
-            <MoviesList movies={movies.data} sortFilter={moviesSortFilter} />
-          </>
-        )}
+
+      <MovieSortFilter
+        movieCount={data.movies.length}
+        onSetMoviesSortFilter={setSortFilter}
+        currentFilter={sortFilter}
+      />
+      <MoviesList movies={data.movies} sortFilter={sortFilter} />
       <Footer />
     </div>
   );

@@ -1,18 +1,19 @@
 import React from 'react';
 
-import { Filters } from '../../redux/moviesSlice';
 import { Button } from '..';
+import {SortFilters} from "../../types";
 
 import style from './movieSortFilter.module.scss';
 
+
 interface Props {
     movieCount: number,
-    onSetMoviesSortFilter: (filter: Filters) => void,
-    currentFilter: Filters
+    onSetMoviesSortFilter: (filter: SortFilters) => void,
+    currentFilter: SortFilters
 }
 
 export const MovieSortFilter: React.FC<Props> = ({ movieCount, onSetMoviesSortFilter, currentFilter }) => {
-  const filterButtons = ['release date', 'rating'].map((filter: Filters, id) => (
+  const filterButtons = ['release date', 'rating'].map((filter: SortFilters, id) => (
     <Button
       key={id}
       active={currentFilter === filter}

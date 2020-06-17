@@ -37,7 +37,7 @@ it('should render search movie filter button', () => {
   expect(toJson(component)).toMatchSnapshot();
 });
 it('should render search movie filter ', () => {
-  const component = mount(<SearchMovieFilters searchType="genre" onSelectType={() => {}} />);
+  const component = mount(<SearchMovieFilters searchType="genres" onSelectType={() => {}} />);
   expect(toJson(component)).toMatchSnapshot();
 });
 it('should render search movie form ', () => {
