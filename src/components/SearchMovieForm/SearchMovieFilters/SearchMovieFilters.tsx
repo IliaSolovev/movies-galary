@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button } from '../../Button/Button';
 
-import style from './searchMovieFilters.module.scss';
+import style from './SearchMovieFilters.module.scss';
 
 interface Props {
     searchType:string,

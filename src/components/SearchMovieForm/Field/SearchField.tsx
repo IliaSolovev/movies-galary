@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from 'react';
 
-import style from './searchField.module.scss';
+import style from './SearchField.module.scss';
 
 interface Props {
     value: string,
@@ -14,6 +14,7 @@ export const SearchField:React.FC<Props> = ({ value, onChange }) => (
       className={style.searchField}
       value={value}
       onChange={({ currentTarget }:ChangeEvent<HTMLInputElement>) => onChange(currentTarget.value)}
+      data-field="search-field"
     />
   </>
 );
