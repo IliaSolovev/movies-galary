@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { useQuery } from '@apollo/react-hooks';
 import {
   Header, Logo, MovieSortFilter, MoviesList, Footer, SearchMovieForm,
 } from '../../components';
@@ -15,6 +16,7 @@ import {
 } from '../../redux/moviesSlice';
 
 import style from '../styles.module.scss';
+import { GET_MOVIES } from '../../queries';
 
 export const FindMovie: React.FC = () => {
   const dispatch = useDispatch();
@@ -27,6 +29,13 @@ export const FindMovie: React.FC = () => {
   const onSetMoviesSortFilter = (filter: Filters) => dispatch(setMoviesSortFilter(filter));
   const onSearch = () => dispatch(fetchMovies(searchData.fieldValue, searchData.searchType));
 
+  const { loading, error, data } = useQuery(GET_MOVIES, {
+    variables: {
+      filter: moviesSortFilter,
+      searchType: searchData.searchType,
+      searchValue: searchData.fieldValue,
+    },
+  });
   return (
     <div>
       <div className={style.layout}>
