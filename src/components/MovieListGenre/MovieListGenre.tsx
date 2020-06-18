@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Movie } from '../../types';
+import { MovieCardData } from '../../types';
 
 import style from './movieListGenre.module.scss';
 
 interface Props {
-    movie: Movie
+    movie: MovieCardData
 }
 
 export const MovieListGenre:React.FC<Props> = ({ movie }) => (

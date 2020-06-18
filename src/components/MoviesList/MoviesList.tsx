@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 import { MovieCard } from './MovieCard/MovieCard';
 import { FilmsNotFound } from '..';
-import { SortFilters, Movie } from '../../types';
+import { SortFilters, MovieCardData } from '../../types';
 
 import style from './moviesList.module.scss';
 
 
 interface Props {
-    movies: Movie[],
+    movies: MovieCardData[],
     sortFilter: SortFilters
 }
 

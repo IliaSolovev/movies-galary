@@ -5,7 +5,9 @@ import {
   Footer, Header, Logo, MoviesList, MovieSortFilter, SearchMovieForm,
 } from '../../components';
 import { GET_MOVIES } from '../../queries';
-import { SortFilters, Movie, SearchType } from '../../types';
+import {
+  SortFilters, SearchType, MovieCardData,
+} from '../../types';
 import { getSortFiltersForQuery } from '../../services';
 
 import style from '../styles.module.scss';
@@ -19,7 +21,7 @@ export const FindMovie: React.FC = () => {
     filter: getSortFiltersForQuery(sortFilter),
     searchValue: fieldValue,
   });
-  const { loading, data } = useQuery<{ movies: Movie[] }>(GET_MOVIES, {
+  const { loading, data } = useQuery<{ movies: MovieCardData[] }>(GET_MOVIES, {
     variables: { ...fetchVariables },
   });
 
@@ -29,6 +31,7 @@ export const FindMovie: React.FC = () => {
       filter: getSortFiltersForQuery(sortFilter),
       searchValue: fieldValue,
     });
+    setFieldValue('');
   };
 
   if (loading) {
