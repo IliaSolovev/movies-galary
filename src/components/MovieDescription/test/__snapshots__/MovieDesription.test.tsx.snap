@@ -19,7 +19,7 @@ exports[`should render movie description 1`] = `
       className="description__title"
     >
       Fifty Shades Freed
-       
+       
       <div
         className="description__rating"
       >
@@ -35,12 +35,11 @@ exports[`should render movie description 1`] = `
       className="description__durationRelease"
     >
       <div>
-        2018
+        2019
       </div>
       <div>
         106
-         
-        min
+          min
       </div>
     </div>
     <div

@@ -6,7 +6,7 @@ import {
 } from '../../components';
 import { GET_MOVIES } from '../../queries';
 import {
-  SortFilters, SearchType, MovieCardData,
+  SortFilters, SearchType, MovieCardData, MovieCardQueryVars, MovieCardQueryData,
 } from '../../types';
 import { getSortFiltersForQuery } from '../../services';
 
@@ -21,7 +21,7 @@ export const FindMovie: React.FC = () => {
     filter: getSortFiltersForQuery(sortFilter),
     searchValue: fieldValue,
   });
-  const { loading, data } = useQuery<{ movies: MovieCardData[] }>(GET_MOVIES, {
+  const { loading, data } = useQuery<MovieCardQueryData, MovieCardQueryVars>(GET_MOVIES, {
     variables: { ...fetchVariables },
   });
 

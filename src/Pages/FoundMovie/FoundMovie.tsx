@@ -5,7 +5,7 @@ import { useLazyQuery, useQuery } from '@apollo/react-hooks';
 import {
   Header, Logo, MoviesList, Footer, MovieDescription, MovieListGenre, CatchError, Button,
 } from '../../components';
-import { MovieDescriptionData } from '../../types';
+import { MovieDescriptionQueryData, MovieDescriptionQueryVars } from '../../types';
 import { GET_MOVIE, GET_MOVIES } from '../../queries';
 
 import bgStyle from '../styles.module.scss';
@@ -14,7 +14,7 @@ import bgStyle from '../styles.module.scss';
 export const FoundMovie: React.FC = () => {
   const { movieId } = useParams();
 
-  const { loading: loadingSelectedMovie, data: selectedMovie } = useQuery<{ movie: MovieDescriptionData }>(GET_MOVIE, {
+  const { loading: loadingSelectedMovie, data: selectedMovie } = useQuery<MovieDescriptionQueryData, MovieDescriptionQueryVars>(GET_MOVIE, {
     variables: {
       id: movieId,
     },

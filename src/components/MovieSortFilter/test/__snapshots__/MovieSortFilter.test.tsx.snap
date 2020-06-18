@@ -2,7 +2,7 @@
 
 exports[`should render sort button 1`] = `
 <button
-  className="button button__sortFilter button__sortFilter_active"
+  className="button button_sortFilter button_sortFilter-active"
   onClick={[Function]}
 >
   sort

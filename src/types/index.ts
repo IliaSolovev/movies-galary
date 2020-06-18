@@ -1,3 +1,3 @@
 export {
-  SortFilters, MovieCardData, MovieDescriptionData, SearchType,
+  SortFilters, MovieCardData, MovieCardQueryData, MovieDescriptionData, MovieDescriptionQueryData, SearchType, MovieDescriptionQueryVars, MovieCardQueryVars,
 } from './movies';
