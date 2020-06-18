@@ -9,7 +9,7 @@
   font-weight: bold;
   font-size: 1em;
   color: #363636;
-
+  box-sizing: border-box;
   & > div {
     @extend .headerContainer;
     height: 100%;

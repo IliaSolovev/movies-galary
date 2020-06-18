@@ -5,7 +5,12 @@ import { useLazyQuery, useQuery } from '@apollo/react-hooks';
 import {
   Header, Logo, MoviesList, Footer, MovieDescription, MovieListGenre, CatchError, Button,
 } from '../../components';
-import { MovieDescriptionQueryData, MovieDescriptionQueryVars } from '../../types';
+import {
+  MovieCardQueryData,
+  MovieCardQueryVars,
+  MovieDescriptionQueryData,
+  MovieDescriptionQueryVars,
+} from '../../types';
 import { GET_MOVIE, GET_MOVIES } from '../../queries';
 
 import bgStyle from '../styles.module.scss';
@@ -19,15 +24,15 @@ export const FoundMovie: React.FC = () => {
       id: movieId,
     },
   });
-  // const [getMovies, { loading: loadingMovies, data: { movies = [] } }] = useLazyQuery<{ movies: Movie[] }>(GET_MOVIES, {
-  //   variables: {
-  //     searchType: 'genres',
-  //     filter: 'release_date',
-  //     searchValue: selectedMovie.movie.genres[0],
-  //   },
-  // });
+  const { loading: loadingMovies, data: moviesData } = useQuery<MovieCardQueryData, MovieCardQueryVars>(GET_MOVIES, {
+    variables: {
+      searchType: 'genres',
+      filter: 'release_date',
+      searchValue: selectedMovie?.movie.genres[0] || '',
+    },
+  });
 
-  if (loadingSelectedMovie) {
+  if (loadingSelectedMovie || loadingMovies) {
     return <p>Loading...</p>;
   }
   return (
@@ -45,7 +50,7 @@ export const FoundMovie: React.FC = () => {
       <CatchError>
         <MovieListGenre movie={selectedMovie.movie} />
       </CatchError>
-      <MoviesList movies={[]} sortFilter="rating" />
+      <MoviesList movies={moviesData?.movies || []} sortFilter="rating" />
       <Footer />
     </div>
   );
