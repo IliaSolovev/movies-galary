@@ -6,12 +6,13 @@ import {
   Header, Logo, MoviesList, Footer, MovieDescription, MovieListGenre, CatchError, Button,
 } from '../../components';
 import {
+  LocalStorageData,
   MovieCardQueryData,
   MovieCardQueryVars,
   MovieDescriptionQueryData,
   MovieDescriptionQueryVars,
 } from '../../types';
-import { GET_MOVIE, GET_MOVIES } from '../../queries';
+import { GET_MOVIE, GET_MOVIES, GET_SELECTED_MOVIE_GENRE } from '../../queries';
 
 import bgStyle from '../styles.module.scss';
 
@@ -19,6 +20,7 @@ import bgStyle from '../styles.module.scss';
 export const FoundMovie: React.FC = () => {
   const { movieId } = useParams();
 
+  const { data: selectedMovieGenre, client } = useQuery<LocalStorageData>(GET_SELECTED_MOVIE_GENRE);
   const { loading: loadingSelectedMovie, data: selectedMovie } = useQuery<MovieDescriptionQueryData, MovieDescriptionQueryVars>(GET_MOVIE, {
     variables: {
       id: movieId,
@@ -28,9 +30,13 @@ export const FoundMovie: React.FC = () => {
     variables: {
       searchType: 'genres',
       filter: 'release_date',
-      searchValue: selectedMovie?.movie.genres[0] || '',
+      searchValue: selectedMovieGenre?.selectedMovieGenre || selectedMovie?.movie.genres[0] || '',
     },
   });
+
+  const onSelectMovie = (genre: string): void => {
+    client.writeData({ data: { selectedMovieGenre: genre } });
+  };
 
   if (loadingSelectedMovie || loadingMovies) {
     return <p>Loading...</p>;
@@ -50,7 +56,7 @@ export const FoundMovie: React.FC = () => {
       <CatchError>
         <MovieListGenre movie={selectedMovie.movie} />
       </CatchError>
-      <MoviesList movies={moviesData?.movies || []} sortFilter="rating" />
+      <MoviesList movies={moviesData?.movies || []} sortFilter="rating" onSelectMovie={onSelectMovie} />
       <Footer />
     </div>
   );

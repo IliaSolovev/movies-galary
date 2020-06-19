@@ -33,5 +33,10 @@ export interface MovieCardQueryVars {
   searchValue: string,
 }
 
+
+export interface LocalStorageData {
+  selectedMovieGenre: string
+}
+
 export type SortFilters = 'rating' | 'release date';
 export type SearchType = 'genres' | 'title';

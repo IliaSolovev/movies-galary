@@ -10,12 +10,13 @@ import style from './moviesList.module.scss';
 
 interface Props {
     movies: MovieCardData[],
-    sortFilter: SortFilters
+    sortFilter: SortFilters,
+    onSelectMovie?: (genre: string) => void
 }
 
-export const MoviesList: React.FC<Props> = ({ movies = [], sortFilter }) => {
+export const MoviesList: React.FC<Props> = ({ movies = [], onSelectMovie = () => {}, sortFilter }) => {
   const moviesCard = movies
-    .map((movie) => <Link to={`/movie/${movie.id}`} key={movie.id}><MovieCard movie={movie} /></Link>);
+    .map((movie) => <Link to={`/movie/${movie.id}`} key={movie.id} onClick={() => onSelectMovie(movie.genres[0])}><MovieCard movie={movie} /></Link>);
 
   return (
     <div className={style.movieList}>

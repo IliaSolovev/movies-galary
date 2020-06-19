@@ -21,17 +21,21 @@ export const FindMovie: React.FC = () => {
     filter: getSortFiltersForQuery(sortFilter),
     searchValue: fieldValue,
   });
-  const { loading, data } = useQuery<MovieCardQueryData, MovieCardQueryVars>(GET_MOVIES, {
+  const { loading, data, client } = useQuery<MovieCardQueryData, MovieCardQueryVars>(GET_MOVIES, {
     variables: { ...fetchVariables },
   });
 
-  const onSearch = () => {
+  const onSearch = (): void => {
     setFetchVariables({
       searchType,
       filter: getSortFiltersForQuery(sortFilter),
       searchValue: fieldValue,
     });
     setFieldValue('');
+  };
+
+  const onSelectMovie = (genre: string): void => {
+    client.writeData({ data: { selectedMovieGenre: genre } });
   };
 
   if (loading) {
@@ -57,7 +61,7 @@ export const FindMovie: React.FC = () => {
         onSetMoviesSortFilter={setSortFilter}
         currentFilter={sortFilter}
       />
-      <MoviesList movies={data.movies} sortFilter={sortFilter} />
+      <MoviesList movies={data.movies} sortFilter={sortFilter} onSelectMovie={onSelectMovie} />
       <Footer />
     </div>
   );
