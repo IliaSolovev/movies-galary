@@ -2,15 +2,15 @@ import React from 'react';
 
 import { SearchField } from './Field/SearchField';
 import { SearchMovieFilters } from './SearchMovieFilters/SearchMovieFilters';
-import { SearchType } from '../../redux/moviesSlice';
 import { Button } from '..';
 
 import style from './searchMovieForm.module.scss';
+import { SearchType } from '../../types';
 
 interface Props {
     fieldValue: string,
     onFieldChange: (value: string) => void,
-    searchType: string,
+    searchType: SearchType,
     onSelectType: (value: SearchType) => void,
     onSearch: () => void
 }

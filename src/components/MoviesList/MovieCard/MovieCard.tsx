@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Movie } from '../../../redux/moviesSlice';
+import { MovieCardData } from '../../../types';
 
 import style from './movieCard.module.scss';
 
 interface Props {
-    movie: Movie
+    movie: MovieCardData
 }
 
 export const MovieCard: React.FC<Props> = ({ movie }) => {
