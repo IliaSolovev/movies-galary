@@ -1,0 +1,19 @@
+@import '../../../styles/variables';
+.searchMovieFilters{
+  width: 250px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  &__searchBy{
+    font-family: $mainFont;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  &__actions{
+    width: 57%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}

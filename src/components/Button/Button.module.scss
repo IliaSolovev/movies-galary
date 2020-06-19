@@ -1,0 +1,56 @@
+@import '../../styles/variables';
+@import '../../styles/main';
+
+.button {
+  font-family: $mainFont;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: normal;
+  font-size: .8em;
+  text-transform: uppercase;
+  transition: opacity .2s ease;
+
+  &:hover {
+    opacity: .8;
+  }
+
+  &_search {
+    width: 170px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 2px;
+    background: $redColor;
+  }
+
+  &_whiteSearch {
+    width: 100px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 2px;
+    background: #fff;
+    color: $redColor;
+  }
+
+  &_searchFilter {
+    padding: 2px 15px;
+    border-radius: 2px;
+    background: #676767;
+
+    &-active {
+      background: $redColor;
+    }
+  }
+
+  &_sortFilter {
+    background: none;
+    color: #2a2a2a;
+    text-transform: lowercase;
+    font-size: 1em;
+
+    &-active {
+      color: $redColor
+    }
+  }
+}
+

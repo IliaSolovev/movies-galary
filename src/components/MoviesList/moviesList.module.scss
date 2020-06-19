@@ -1,0 +1,14 @@
+@import "../../styles/main";
+.movieList {
+  @extend .container;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 15px 0;
+  @media screen and(max-width: 640px) {
+    justify-content: space-around;
+  }
+  & > * {
+    margin: 10px;
+  }
+}

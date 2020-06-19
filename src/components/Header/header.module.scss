@@ -1,0 +1,8 @@
+@import '../../styles/variables';
+@import '../../styles/main';
+.header{
+  @extend .headerContainer;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}

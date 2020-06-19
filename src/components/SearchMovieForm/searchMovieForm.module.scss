@@ -1,0 +1,23 @@
+@import "./../../styles/main";
+@import "./../../styles/variables";
+.searchMovie{
+  position: relative;
+  @extend .headerContainer;
+  &__title{
+    margin-bottom: 1.4vw;
+    font-family: $mainFont;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  &__buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    @media screen and (max-width: 540px) {
+      justify-content: space-around;
+
+    }
+  }
+}

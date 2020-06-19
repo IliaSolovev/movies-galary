@@ -1,61 +1,73 @@
-const path  =  require("path");
-const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const ErrorOverlayPlugin = require("error-overlay-webpack-plugin");
-const autoprefixer = require("autoprefixer");
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
+
+const paths = {
+  src: path.resolve(__dirname, 'src'),
+  dist: path.resolve(__dirname, 'dist'),
+};
 
 module.exports = {
+  context: paths.src,
   entry: {
-    main: [
-      "./src/app.js",
-    ],
+    app: './index',
   },
   output: {
-    filename: "[name].js",
+    path: paths.dist,
+    filename: '[name].bundle.js',
+    publicPath: '/',
   },
-  devServer: {
-    historyApiFallback: true,
-    port: 3000,
-    hot: true,
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss'],
   },
-  devtool: "cheap-module-source-map",
   module: {
     rules: [
       {
-        test: /\.(jsx?)$/,
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader',
         exclude: /node_modules/,
-        use: [{
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env", "@babel/react"],
-            cacheDirectory: true,
-            plugins: ["react-hot-loader/babel"],
+      },
+      {
+        test: /\.module\.s([ac])ss$/,
+        loader: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                mode: 'local',
+                exportGlobals: true,
+                localIdentName: '[path]--[hash:base64:5]',
+                context: path.resolve(__dirname, 'src'),
+                hashPrefix: 'my-custom-hash',
+              },
+            },
           },
-        },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
         ],
       },
       {
         test: /\.(sa|sc|c)ss$/,
+        exclude: /\.module.(s([ac])ss)$/,
         use: [
           {
-            loader: "style-loader",
+            loader: 'style-loader',
           },
           {
-            loader: "css-loader",
-            options: { sourceMap: true },
-          },
-          {
-            loader: "postcss-loader",
+            loader: 'css-loader',
             options: {
-              sourceMap: true,
-              plugins: [
-                autoprefixer,
-              ],
+              modules: true,
             },
           },
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: { sourceMap: true },
           },
         ],
@@ -64,49 +76,70 @@ module.exports = {
         test: /\.(png|gif|jpe?g)$/,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
-              name: "[path][name].[ext]",
+              name: '[path][name].[ext]',
             },
           },
-          "img-loader",
+          'img-loader',
+        ],
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: path.join(`${__dirname}/dist/fonts`),
+            },
+          },
         ],
       },
       {
         test: /\.svg$/,
         use: [
+          'babel-loader',
           {
-            loader: "babel-loader"
-          },
-          {
-            loader: "react-svg-loader",
+            loader: 'react-svg-loader',
             options: {
-              jsx: true // true outputs JSX tags
-            }
-          }
-        ]
-      }
+              svgo: {
+                plugins: [
+                  { removeTitle: false },
+                ],
+                floatPrecision: 2,
+              },
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
     new webpack.DefinePlugin({
-      "process.env": {
+      'process.env': {
         devServer: true,
       },
     }),
     new webpack.SourceMapDevToolPlugin({
-      filename: "[name].js.map",
-      exclude: ["bundle.js"],
+      filename: '[name].js.map',
+      exclude: ['bundle.js'],
     }),
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       hash: true,
-      title: "Module 11",
+      title: 'Module 11',
       template: path.join(`${__dirname}/public/index.html`),
       filename: path.join(`${__dirname}/dist/index.html`),
-      favicon: path.join(`${__dirname}/favicon.ico`)
+      favicon: path.join(`${__dirname}/favicon.ico`),
     }),
-    new ErrorOverlayPlugin()
+    new ErrorOverlayPlugin(),
   ],
+  devServer: {
+    historyApiFallback: true,
+    port: 3000,
+    hot: true,
+  },
+  devtool: 'source-map',
 };

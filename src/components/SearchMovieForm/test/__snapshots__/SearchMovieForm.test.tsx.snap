@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render search field 1`] = `
+<Fragment>
+  <input
+    className="searchField"
+    onChange={[Function]}
+    type="text"
+    value="asd"
+  />
+</Fragment>
+`;
+
+exports[`should render search movie filter  1`] = `
+<Component
+  onSelectType={[Function]}
+  searchType="genre"
+>
+  <div
+    className="searchMovieFilters"
+  >
+    <div
+      className="searchMovieFilters__searchBy"
+    >
+      search by
+    </div>
+    <div
+      className="searchMovieFilters__buttons"
+    >
+      <Component
+        active={false}
+        key="0"
+        onClick={[Function]}
+        type="searchFilter"
+      >
+        <button
+          className="button button__searchFilter "
+          onClick={[Function]}
+        >
+          title
+        </button>
+      </Component>
+      <Component
+        active={true}
+        key="1"
+        onClick={[Function]}
+        type="searchFilter"
+      >
+        <button
+          className="button button__searchFilter button__searchFilter_active"
+          onClick={[Function]}
+        >
+          genre
+        </button>
+      </Component>
+    </div>
+  </div>
+</Component>
+`;
+
+exports[`should render search movie filter button 1`] = `
+<button
+  className="button button__search undefined"
+  onClick={[Function]}
+>
+  search
+</button>
+`;
+
+exports[`should render search movie form  1`] = `
+<Component
+  fieldValue="asd"
+  onFieldChange={[Function]}
+  onSelectType={[Function]}
+  search={[Function]}
+  searchType="title"
+>
+  <div
+    className="searchMovie"
+  >
+    <div
+      className="searchMovie__title"
+    >
+      find your movie
+    </div>
+    <div>
+      <Component
+        onChange={[Function]}
+        value="asd"
+      >
+        <input
+          className="searchField"
+          onChange={[Function]}
+          type="text"
+          value="asd"
+        />
+      </Component>
+    </div>
+    <div
+      className="searchMovie__buttons"
+    >
+      <Component
+        onSelectType={[Function]}
+        searchType="title"
+      >
+        <div
+          className="searchMovieFilters"
+        >
+          <div
+            className="searchMovieFilters__searchBy"
+          >
+            search by
+          </div>
+          <div
+            className="searchMovieFilters__buttons"
+          >
+            <Component
+              active={true}
+              key="0"
+              onClick={[Function]}
+              type="searchFilter"
+            >
+              <button
+                className="button button__searchFilter button__searchFilter_active"
+                onClick={[Function]}
+              >
+                title
+              </button>
+            </Component>
+            <Component
+              active={false}
+              key="1"
+              onClick={[Function]}
+              type="searchFilter"
+            >
+              <button
+                className="button button__searchFilter "
+                onClick={[Function]}
+              >
+                genre
+              </button>
+            </Component>
+          </div>
+        </div>
+      </Component>
+      <Component
+        onClick={[Function]}
+        type="search"
+      >
+        <button
+          className="button button__search "
+          onClick={[Function]}
+        >
+          search
+        </button>
+      </Component>
+    </div>
+  </div>
+</Component>
+`;

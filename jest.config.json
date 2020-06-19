@@ -4,6 +4,14 @@
   "collectCoverage": true,
   "bail": true,
   "verbose": true,
-  "collectCoverageFrom" : ["./src/test/*.spec.ts", "!**/node_modules/**", "!**/vendor/**"],
-  "setupFilesAfterEnv": ["./setupJest.ts"]
+  "roots": ["./src"],
+  "collectCoverageFrom" : ["src/components/**/*.{ts,tsx}","src/redux/moviesSlice.ts", "src/services/*.{ts,tsx}"],
+  "setupFilesAfterEnv": ["./setupJest.ts"],
+  "transform": {
+    ".+\\.(css|scss)$": "jest-css-modules-transform"
+  },
+  "testPathIgnorePatterns": [
+    "<rootDir>/Pages",
+    "<rootDir>/stories"
+  ]
 }
