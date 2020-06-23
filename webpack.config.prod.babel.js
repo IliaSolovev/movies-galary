@@ -27,42 +27,61 @@ module.exports = {
 		rules: [
 			{
 				test: /\.tsx?$/,
-				loader: "awesome-typescript-loader"
-			},
-			{
-				test: /\.(js|jsx)$/,
+				loader: "awesome-typescript-loader",
 				exclude: /node_modules/,
-				use: [{
-					loader: "babel-loader",
-					options: {
-						presets: ["@babel/preset-env", "@babel/react"],
-					},
-				}],
 			},
 			{
-				test: /\.(sa|sc|c)ss$/,
+				test: /\.module\.s([ac])ss$/,
 				use: [
 					{
 						loader: MiniCssExtractPlugin.loader,
-						options: { sourceMap: true },
 					},
 					{
 						loader: "css-loader",
-						options: { sourceMap: true },
-					},
-					{
-						loader: "postcss-loader",
 						options: {
-							sourceMap: true,
-							plugins: [
-								autoprefixer,
-							],
+							modules: {
+								mode: 'local',
+								exportGlobals: true,
+								localIdentName: '[path]--[hash:base64:5]',
+								context: path.resolve(__dirname, 'src'),
+								hashPrefix: 'my-custom-hash',
+							},
 						},
 					},
 					{
 						loader: "sass-loader",
+					},
+				],
+			},
+			{
+				test: /\.(sa|sc|c)ss$/,
+				exclude: /\.module.(s([ac])ss)$/,
+				use: [
+					{
+						loader: 'style-loader',
+					},
+					{
+						loader: 'css-loader',
+						options: {
+							modules: true,
+						},
+					},
+					{
+						loader: 'sass-loader',
 						options: { sourceMap: true },
 					},
+				],
+			},
+			{
+				test: /\.(png|gif|jpe?g)$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[path][name].[ext]',
+						},
+					},
+					'img-loader',
 				],
 			},
 			{
