@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  movies-server:
+    image: movies-server:1.0
+    container_name: movies-server
+    ports:
+      - 8080:8080
+    networks:
+      - movies-network
+
+  movies-ui:
+    image: movies-galary:1.0
+    container_name: movies-ui
+    ports:
+      - 8081:8081
+    links:
+      - movies-server
+    networks:
+      - movies-network
+
+networks:
+  movies-network:

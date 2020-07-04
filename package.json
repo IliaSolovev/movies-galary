@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.config.prod.babel.js",
+    "build": "webpack --config webpack.config.dev.babel.js",
     "dev": "webpack-dev-server --mode development --config webpack.config.dev.babel.js --open",
     "test": "jest",
     "test:watch": "jest --watch",
