@@ -6,6 +6,9 @@ services:
     container_name: movies-server
     ports:
       - 8080:8080
+    environment:
+       - MONGODB_URI="mongodb+srv://Ilia:Jakw2tuKVklB1GOq@cluster0-wbjyc.mongodb.net/movies?retryWrites=true&w=majority"
+       - NODE_ENV=production
     networks:
       - movies-network
 
@@ -16,6 +19,8 @@ services:
       - 8081:8081
     links:
       - movies-server
+    environment:
+      - REACT_APP_API_HOST="/graphql"
     networks:
       - movies-network
 

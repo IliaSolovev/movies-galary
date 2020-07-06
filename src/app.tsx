@@ -10,7 +10,7 @@ import './styles/main.scss';
 import 'normalize.css';
 
 const client = new ApolloClient({
-  uri: 'http://192.168.0.103:8080/graphql',
+  uri: '/graphql',
 });
 
 const App: React.FC = (props) => (
