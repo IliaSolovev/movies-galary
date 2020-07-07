@@ -57,11 +57,11 @@ export const FindMovie: React.FC = () => {
       </div>
 
       <MovieSortFilter
-        movieCount={data.movies.length}
+        movieCount={data?.movies.length}
         onSetMoviesSortFilter={setSortFilter}
         currentFilter={sortFilter}
       />
-      <MoviesList movies={data.movies} sortFilter={sortFilter} onSelectMovie={onSelectMovie} />
+      <MoviesList movies={data?.movies} sortFilter={sortFilter} onSelectMovie={onSelectMovie} />
       <Footer />
     </div>
   );

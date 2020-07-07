@@ -118,8 +118,8 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        devServer: true,
-      },
+        'REACT_APP_API_HOST': JSON.stringify(process.env.REACT_APP_API_HOST),
+      }
     }),
     new webpack.SourceMapDevToolPlugin({
       filename: '[name].js.map',

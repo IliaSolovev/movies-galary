@@ -10,10 +10,12 @@ import './styles/main.scss';
 import 'normalize.css';
 
 const client = new ApolloClient({
-  uri: '/graphql',
+  uri: process.env.REACT_APP_API_HOST || 'http://localhost:8080/graphql',
 });
 
-const App: React.FC = (props) => (
+const App: React.FC = (props) => {
+  console.log(process.env.REACT_APP_API_HOST)
+  return (
   <CatchError>
     <ApolloProvider client={client}>
       <Router>
@@ -31,6 +33,6 @@ const App: React.FC = (props) => (
       </Router>
     </ApolloProvider>
   </CatchError>
-);
+)};
 
 export default App;

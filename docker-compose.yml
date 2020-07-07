@@ -17,10 +17,6 @@ services:
     container_name: movies-ui
     ports:
       - 8081:8081
-    links:
-      - movies-server
-    environment:
-      - REACT_APP_API_HOST="/graphql"
     networks:
       - movies-network
 
