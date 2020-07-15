@@ -14,7 +14,6 @@ const client = new ApolloClient({
 });
 
 const App: React.FC = (props) => {
-  console.log(process.env.REACT_APP_API_HOST)
   return (
   <CatchError>
     <ApolloProvider client={client}>
