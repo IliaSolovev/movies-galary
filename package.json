@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^4.7.0",
+    "cypress": "^4.12.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hooks": "^1.0.1",
